@@ -1,4 +1,13 @@
 plugins:
+  - name: "builtin"
+    description:
+      it: "Comandi integrati per WPStore CLI seguendo gli standard SAI"
+      en: "Built-in commands for WPStore CLI following SAI standards"
+      es: "Comandos integrados para WPStore CLI siguiendo estándares SAI"
+    uuid: "00000000-0000-0000-0000-000000000000"
+    versions:
+      - version: "1.0.0"
+        conf: "builtin.yml"
   - name: "pkgmanager"
     description:
       it: "Gestione pacchetti per applicazioni custom"
