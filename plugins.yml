@@ -5,6 +5,7 @@ plugins:
       en: "Package management for custom applications"
       es: "Gestión de paquetes para aplicaciones personalizadas"
     uuid: "123e4567-e89b-12d3-a456-426614174000"
+    subcommand: "pkg"
     versions:
       - version: "1.0.0"
         wasm: "pkgmanager.wasm"
@@ -18,6 +19,7 @@ plugins:
       en: "Test plugin that prints a greeting"
       es: "Plugin de prueba que imprime un saludo"
     uuid: "123e4567-e89b-12d3-a456-426614174001"
+    subcommand: "greet"
     versions:
       - version: "0.1.0"
         wasm: "hello.wasm"
