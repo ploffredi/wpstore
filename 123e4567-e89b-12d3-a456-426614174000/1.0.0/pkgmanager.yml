@@ -108,6 +108,7 @@ commands:
           es: "Formato de salida (json, yaml, table)"
         required: false
         default: "table"
+        valid_values: ["json", "yaml", "table"]
 settings:
   supported_languages:
     - it
