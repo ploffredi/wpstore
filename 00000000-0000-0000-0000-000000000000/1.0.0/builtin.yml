@@ -1075,8 +1075,9 @@ commands:
           it: "Formato di output (spdx, cyclonedx)"
           en: "Output format (spdx, cyclonedx)"
           es: "Formato de salida (spdx, cyclonedx)"
-        type: string
+        type: enum
         default: spdx
+        valid_values: ["spdx", "cyclonedx"]
       - name: output
         shorthand: o
         description:
