@@ -1,0 +1,40 @@
+name: "hello"
+version: "0.1.0"
+description:
+  it: "Plugin di test che stampa un saluto"
+  en: "Test plugin that prints a greeting"
+  es: "Plugin de prueba que imprime un saludo"
+author: "System"
+commands:
+  - name: "greet"
+    description:
+      it: "Stampa un saluto personalizzato"
+      en: "Print a personalized greeting"
+      es: "Imprimir un saludo personalizado"
+    usage: "greet [nome]"
+    flags:
+      - name: "--language"
+        shorthand: "-l"
+        description:
+          it: "Lingua del saluto (it, en, es)"
+          en: "Greeting language (it, en, es)"
+          es: "Idioma del saludo (it, en, es)"
+        required: false
+        default: "en"
+      - name: "--formal"
+        shorthand: "-f"
+        description:
+          it: "Usa il formato formale"
+          en: "Use formal format"
+          es: "Usar formato formal"
+        required: false
+        default: false
+settings:
+  default_greeting:
+    it: "Ciao"
+    en: "Hello"
+    es: "Hola"
+  supported_languages:
+    - it
+    - en
+    - es

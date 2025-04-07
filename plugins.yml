@@ -1,0 +1,24 @@
+plugins:
+  - name: "pkgmanager"
+    description:
+      it: "Gestione pacchetti per applicazioni custom"
+      en: "Package management for custom applications"
+      es: "Gestión de paquetes para aplicaciones personalizadas"
+    version: "1.0.0"
+    wasm: "pkgmanager.wasm"
+    conf: "pkgmanager.yml"
+    uuid: "123e4567-e89b-12d3-a456-426614174000"
+  - name: "hello"
+    description:
+      it: "Plugin di test che stampa un saluto"
+      en: "Test plugin that prints a greeting"
+      es: "Plugin de prueba que imprime un saludo"
+    version: "0.1.0"
+    wasm: "hello.wasm"
+    conf: "hello.yml"
+    uuid: "123e4567-e89b-12d3-a456-426614174001"
+settings:
+  default_repository: "https://github.com/ploffredi/wpstore.git"
+  cache_dir: "./cache"
+  log_level: "info"
+  default_language: "en"
