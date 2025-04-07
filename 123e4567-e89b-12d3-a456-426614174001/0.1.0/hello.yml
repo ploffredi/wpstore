@@ -38,6 +38,7 @@ commands:
           es: "Idioma del saludo (it, en, es)"
         required: false
         default: "en"
+        valid_values: ["it", "en", "es"]
       - name: "--formal"
         shorthand: "-f"
         type: "bool"
