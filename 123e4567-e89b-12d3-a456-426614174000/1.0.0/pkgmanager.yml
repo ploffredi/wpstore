@@ -14,6 +14,15 @@ commands:
       en: "Install a package"
       es: "Instalar un paquete"
     usage: "install <package-name>"
+    examples:
+      - description: "Install the latest version of a package"
+        command: "wpcli pkg install my-package"
+      - description: "Install a specific version of a package"
+        command: "wpcli pkg install my-package --version 1.2.3"
+      - description: "Force install a package even if already present"
+        command: "wpcli pkg install my-package --force"
+      - description: "Install a specific version with force flag"
+        command: "wpcli pkg install my-package --version 1.2.3 --force"
     args:
       - name: "package-name"
         type: "string"
@@ -45,6 +54,11 @@ commands:
       en: "Remove a package"
       es: "Eliminar un paquete"
     usage: "remove <package-name>"
+    examples:
+      - description: "Remove a package"
+        command: "wpcli pkg remove my-package"
+      - description: "Remove a package and its configuration files"
+        command: "wpcli pkg remove my-package --purge"
     args:
       - name: "package-name"
         type: "string"
@@ -68,6 +82,17 @@ commands:
       en: "List installed packages"
       es: "Listar paquetes instalados"
     usage: "list"
+    examples:
+      - description: "List only installed packages"
+        command: "wpcli pkg list"
+      - description: "List all packages including uninstalled ones"
+        command: "wpcli pkg list --all"
+      - description: "List packages in JSON format"
+        command: "wpcli pkg list --format json"
+      - description: "List packages in YAML format"
+        command: "wpcli pkg list --format yaml"
+      - description: "List all packages in table format"
+        command: "wpcli pkg list --all --format table"
     args: []
     flags:
       - name: "--all"

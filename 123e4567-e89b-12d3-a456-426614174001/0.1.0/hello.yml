@@ -14,6 +14,17 @@ commands:
       en: "Print a personalized greeting"
       es: "Imprimir un saludo personalizado"
     usage: "greet [name]"
+    examples:
+      - description: "Print a default greeting"
+        command: "wpcli greet"
+      - description: "Print a greeting with a name"
+        command: "wpcli greet John"
+      - description: "Print a greeting in Italian"
+        command: "wpcli greet --language it"
+      - description: "Print a formal greeting in Spanish"
+        command: "wpcli greet --language es --formal"
+      - description: "Print a formal greeting with a name in Italian"
+        command: "wpcli greet Maria --language it --formal"
     args:
       - name: "name"
         type: "string"
