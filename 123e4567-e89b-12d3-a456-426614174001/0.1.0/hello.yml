@@ -5,6 +5,8 @@ description:
   en: "Test plugin that prints a greeting"
   es: "Plugin de prueba que imprime un saludo"
 author: "System"
+source_repo: "https://github.com/ploffredi/wpstore-plugins/tree/main/hello"
+plugin_type: "go"
 commands:
   - name: "greet"
     description:

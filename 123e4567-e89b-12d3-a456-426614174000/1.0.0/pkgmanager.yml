@@ -5,6 +5,8 @@ description:
   en: "Package management for custom applications"
   es: "Gestión de paquetes para aplicaciones personalizadas"
 author: "System"
+source_repo: "https://github.com/ploffredi/wpstore-plugins/tree/main/pkgmanager"
+plugin_type: "go"
 commands:
   - name: "install"
     description:
