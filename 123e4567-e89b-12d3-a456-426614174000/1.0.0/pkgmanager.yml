@@ -15,14 +15,10 @@ commands:
       es: "Instalar un paquete"
     usage: "install <package-name>"
     examples:
-      - description: "Install the latest version of a package"
-        command: "wpcli pkg install my-package"
-      - description: "Install a specific version of a package"
-        command: "wpcli pkg install my-package --version 1.2.3"
-      - description: "Force install a package even if already present"
-        command: "wpcli pkg install my-package --force"
-      - description: "Install a specific version with force flag"
-        command: "wpcli pkg install my-package --version 1.2.3 --force"
+      - command: "wpcli pkg install my-package # Install the latest version of a package"
+      - command: "wpcli pkg install my-package --version 1.2.3 # Install a specific version of a package"
+      - command: "wpcli pkg install my-package --force # Force install a package even if already present"
+      - command: "wpcli pkg install my-package --version 1.2.3 --force # Install a specific version with force flag"
     args:
       - name: "package-name"
         type: "string"
