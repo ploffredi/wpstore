@@ -1,0 +1,636 @@
+name: builtin
+version: 1.0.0
+description: Built-in commands for the WPStore CLI following SAI (Software Automation Interface) standards
+author: WPStore Team
+commands:
+  # Installation Actions
+  - name: install
+    description: Install software or service
+    usage: wpcli install <software> [options]
+    examples:
+      - description: Install software using default settings
+        command: wpcli install nginx
+      - description: Install software with specific provider
+        command: wpcli install docker --provider docker.io
+      - description: Install software in dry-run mode
+        command: wpcli install mysql --dry-run
+    arguments:
+      - name: software
+        description: Name of the software to install
+        required: true
+        type: string
+    flags:
+      - name: provider
+        shorthand: p
+        description: Specify the provider to use
+        type: string
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+      - name: yes
+        shorthand: y
+        description: Assume yes to all prompted questions
+        type: bool
+        default: false
+
+  - name: upgrade
+    description: Upgrade software or service
+    usage: wpcli upgrade <software> [options]
+    examples:
+      - description: Upgrade software to latest version
+        command: wpcli upgrade nginx
+      - description: Upgrade software with specific provider
+        command: wpcli upgrade docker --provider docker.io
+    arguments:
+      - name: software
+        description: Name of the software to upgrade
+        required: true
+        type: string
+    flags:
+      - name: provider
+        shorthand: p
+        description: Specify the provider to use
+        type: string
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+      - name: yes
+        shorthand: y
+        description: Assume yes to all prompted questions
+        type: bool
+        default: false
+
+  - name: uninstall
+    description: Uninstall software or service
+    usage: wpcli uninstall <software> [options]
+    examples:
+      - description: Uninstall software
+        command: wpcli uninstall nginx
+      - description: Uninstall software with specific provider
+        command: wpcli uninstall docker --provider docker.io
+    arguments:
+      - name: software
+        description: Name of the software to uninstall
+        required: true
+        type: string
+    flags:
+      - name: provider
+        shorthand: p
+        description: Specify the provider to use
+        type: string
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+      - name: yes
+        shorthand: y
+        description: Assume yes to all prompted questions
+        type: bool
+        default: false
+
+  # Management Actions
+  - name: start
+    description: Start a software or service
+    usage: wpcli start <software> [options]
+    examples:
+      - description: Start a service
+        command: wpcli start nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to start
+        required: true
+        type: string
+    flags:
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+      - name: yes
+        shorthand: y
+        description: Assume yes to all prompted questions
+        type: bool
+        default: false
+
+  - name: stop
+    description: Stop a software or service
+    usage: wpcli stop <software> [options]
+    examples:
+      - description: Stop a service
+        command: wpcli stop nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to stop
+        required: true
+        type: string
+    flags:
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+      - name: yes
+        shorthand: y
+        description: Assume yes to all prompted questions
+        type: bool
+        default: false
+
+  - name: restart
+    description: Restart a software or service
+    usage: wpcli restart <software> [options]
+    examples:
+      - description: Restart a service
+        command: wpcli restart nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to restart
+        required: true
+        type: string
+    flags:
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+      - name: yes
+        shorthand: y
+        description: Assume yes to all prompted questions
+        type: bool
+        default: false
+
+  - name: enable
+    description: Enable a software or service
+    usage: wpcli enable <software> [options]
+    examples:
+      - description: Enable a service
+        command: wpcli enable nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to enable
+        required: true
+        type: string
+    flags:
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+      - name: yes
+        shorthand: y
+        description: Assume yes to all prompted questions
+        type: bool
+        default: false
+
+  - name: disable
+    description: Disable a software or service
+    usage: wpcli disable <software> [options]
+    examples:
+      - description: Disable a service
+        command: wpcli disable nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to disable
+        required: true
+        type: string
+    flags:
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+      - name: yes
+        shorthand: y
+        description: Assume yes to all prompted questions
+        type: bool
+        default: false
+
+  # Monitoring Actions
+  - name: status
+    description: Check the status of a software or service
+    usage: wpcli status <software> [options]
+    examples:
+      - description: Check service status
+        command: wpcli status nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to check status
+        required: true
+        type: string
+    flags:
+      - name: verbose
+        shorthand: v
+        description: Show detailed status information
+        type: bool
+        default: false
+
+  - name: monitor
+    description: Monitor a software or service
+    usage: wpcli monitor <software> [options]
+    examples:
+      - description: Monitor a service
+        command: wpcli monitor nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to monitor
+        required: true
+        type: string
+    flags:
+      - name: interval
+        shorthand: i
+        description: Monitoring interval in seconds
+        type: int
+        default: 5
+      - name: duration
+        shorthand: d
+        description: Monitoring duration in minutes (0 for infinite)
+        type: int
+        default: 0
+
+  - name: observe
+    description: Observe a software or service
+    usage: wpcli observe <software> [options]
+    examples:
+      - description: Observe a service
+        command: wpcli observe nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to observe
+        required: true
+        type: string
+    flags:
+      - name: metrics
+        shorthand: m
+        description: Comma-separated list of metrics to observe
+        type: string
+      - name: format
+        shorthand: f
+        description: Output format (text, json, csv)
+        type: string
+        default: text
+
+  # Troubleshooting Actions
+  - name: log
+    description: View logs for a software or service
+    usage: wpcli log <software> [options]
+    examples:
+      - description: View service logs
+        command: wpcli log nginx
+      - description: View logs with specific level
+        command: wpcli log nginx --level error
+    arguments:
+      - name: software
+        description: Name of the software or service to view logs for
+        required: true
+        type: string
+    flags:
+      - name: level
+        shorthand: l
+        description: Log level (debug, info, warning, error)
+        type: string
+      - name: lines
+        shorthand: n
+        description: Number of lines to show
+        type: int
+        default: 100
+      - name: follow
+        shorthand: f
+        description: Follow log output
+        type: bool
+        default: false
+
+  - name: check
+    description: Check a software or service for issues
+    usage: wpcli check <software> [options]
+    examples:
+      - description: Check a service for issues
+        command: wpcli check nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to check
+        required: true
+        type: string
+    flags:
+      - name: verbose
+        shorthand: v
+        description: Show detailed check information
+        type: bool
+        default: false
+
+  - name: debug
+    description: Debug a software or service
+    usage: wpcli debug <software> [options]
+    examples:
+      - description: Debug a service
+        command: wpcli debug nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to debug
+        required: true
+        type: string
+    flags:
+      - name: level
+        shorthand: l
+        description: Debug level (basic, advanced, expert)
+        type: string
+        default: basic
+
+  - name: troubleshoot
+    description: Troubleshoot a software or service
+    usage: wpcli troubleshoot <software> [options]
+    examples:
+      - description: Troubleshoot a service
+        command: wpcli troubleshoot nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to troubleshoot
+        required: true
+        type: string
+    flags:
+      - name: auto-fix
+        shorthand: a
+        description: Automatically fix detected issues
+        type: bool
+        default: false
+
+  - name: trace
+    description: Trace a software or service
+    usage: wpcli trace <software> [options]
+    examples:
+      - description: Trace a service
+        command: wpcli trace nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to trace
+        required: true
+        type: string
+    flags:
+      - name: duration
+        shorthand: d
+        description: Trace duration in seconds
+        type: int
+        default: 30
+
+  # Information Actions
+  - name: info
+    description: Get detailed information about a software or service
+    usage: wpcli info <software> [options]
+    examples:
+      - description: Get software information
+        command: wpcli info nginx
+      - description: Get detailed software information
+        command: wpcli info nginx --verbose
+    arguments:
+      - name: software
+        description: Name of the software or service to get information about
+        required: true
+        type: string
+    flags:
+      - name: verbose
+        shorthand: v
+        description: Show detailed information
+        type: bool
+        default: false
+
+  - name: help
+    description: Get help for a software or service
+    usage: wpcli help <software> [options]
+    examples:
+      - description: Get help for a software
+        command: wpcli help nginx
+    arguments:
+      - name: software
+        description: Name of the software or service to get help for
+        required: true
+        type: string
+    flags:
+      - name: topic
+        shorthand: t
+        description: Specific help topic
+        type: string
+
+  - name: ask
+    description: Ask a question about a software or service
+    usage: wpcli ask <software> <question> [options]
+    examples:
+      - description: Ask a question about a software
+        command: wpcli ask nginx "How do I configure SSL?"
+    arguments:
+      - name: software
+        description: Name of the software or service
+        required: true
+        type: string
+      - name: question
+        description: Question to ask about the software
+        required: true
+        type: string
+    flags:
+      - name: format
+        shorthand: f
+        description: Output format (text, markdown)
+        type: string
+        default: text
+
+  # Discovery Actions
+  - name: list
+    description: List all available software and services
+    usage: wpcli list [options]
+    examples:
+      - description: List all software
+        command: wpcli list
+      - description: List software with detailed information
+        command: wpcli list --verbose
+      - description: Search for specific software
+        command: wpcli list --search "nginx"
+    flags:
+      - name: verbose
+        shorthand: v
+        description: Show detailed information about each software
+        type: bool
+        default: false
+      - name: search
+        shorthand: s
+        description: Search for software matching the pattern
+        type: string
+      - name: category
+        shorthand: c
+        description: Filter by category (web, database, container, etc.)
+        type: string
+
+  - name: search
+    description: Search for software and services
+    usage: wpcli search <pattern> [options]
+    examples:
+      - description: Search for software
+        command: wpcli search "nginx"
+      - description: Search with specific provider
+        command: wpcli search "docker" --provider docker.io
+    arguments:
+      - name: pattern
+        description: Search pattern to match software names
+        required: true
+        type: string
+    flags:
+      - name: provider
+        shorthand: p
+        description: Specify the provider to use
+        type: string
+      - name: verbose
+        shorthand: v
+        description: Show detailed search results
+        type: bool
+        default: false
+      - name: category
+        shorthand: c
+        description: Filter by category (web, database, container, etc.)
+        type: string
+
+  # Maintenance Actions
+  - name: update
+    description: Update software information
+    usage: wpcli update [options]
+    examples:
+      - description: Update software information
+        command: wpcli update
+      - description: Update with specific provider
+        command: wpcli update --provider docker.io
+    flags:
+      - name: provider
+        shorthand: p
+        description: Specify the provider to use
+        type: string
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+
+  # Configuration Actions
+  - name: apply
+    description: Apply configuration to a software or service
+    usage: wpcli apply <software> <config-file> [options]
+    examples:
+      - description: Apply configuration to a service
+        command: wpcli apply nginx nginx.conf
+    arguments:
+      - name: software
+        description: Name of the software or service to configure
+        required: true
+        type: string
+      - name: config-file
+        description: Path to the configuration file
+        required: true
+        type: string
+    flags:
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+      - name: yes
+        shorthand: y
+        description: Assume yes to all prompted questions
+        type: bool
+        default: false
+
+  - name: manage
+    description: Manage a software or service
+    usage: wpcli manage <software> <action> [options]
+    examples:
+      - description: Manage a service
+        command: wpcli manage nginx reload
+    arguments:
+      - name: software
+        description: Name of the software or service to manage
+        required: true
+        type: string
+      - name: action
+        description: Action to perform on the software
+        required: true
+        type: string
+    flags:
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+      - name: yes
+        shorthand: y
+        description: Assume yes to all prompted questions
+        type: bool
+        default: false
+
+  - name: config
+    description: Configure a software or service
+    usage: wpcli config <software> [options]
+    examples:
+      - description: Configure a service
+        command: wpcli config nginx
+      - description: Configure with specific provider
+        command: wpcli config nginx --provider nginx.org
+    arguments:
+      - name: software
+        description: Name of the software or service to configure
+        required: true
+        type: string
+    flags:
+      - name: provider
+        shorthand: p
+        description: Specify the provider to use
+        type: string
+      - name: dry-run
+        description: Run in noop mode without doing changes
+        type: bool
+        default: false
+      - name: yes
+        shorthand: y
+        description: Assume yes to all prompted questions
+        type: bool
+        default: false
+
+  # Security Actions
+  - name: scan
+    description: Scan a software or service for security issues
+    usage: wpcli scan <software> [options]
+    examples:
+      - description: Scan a software for security issues
+        command: wpcli scan nginx
+      - description: Scan with specific provider
+        command: wpcli scan nginx --provider nginx.org
+    arguments:
+      - name: software
+        description: Name of the software or service to scan
+        required: true
+        type: string
+    flags:
+      - name: provider
+        shorthand: p
+        description: Specify the provider to use
+        type: string
+      - name: verbose
+        shorthand: v
+        description: Show detailed scan results
+        type: bool
+        default: false
+      - name: level
+        shorthand: l
+        description: Scan level (basic, standard, thorough)
+        type: string
+        default: standard
+
+  - name: sbom
+    description: Generate Software Bill of Materials for a software or service
+    usage: wpcli sbom <software> [options]
+    examples:
+      - description: Generate SBOM for a software
+        command: wpcli sbom nginx
+      - description: Generate SBOM with specific format
+        command: wpcli sbom nginx --format spdx
+    arguments:
+      - name: software
+        description: Name of the software or service to generate SBOM for
+        required: true
+        type: string
+    flags:
+      - name: format
+        shorthand: f
+        description: Output format (spdx, cyclonedx)
+        type: string
+        default: spdx
+      - name: output
+        shorthand: o
+        description: Output file path
+        type: string
