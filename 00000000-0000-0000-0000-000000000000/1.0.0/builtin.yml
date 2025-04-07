@@ -1,636 +1,1086 @@
 name: builtin
 version: 1.0.0
-description: Built-in commands for the WPStore CLI following SAI (Software Automation Interface) standards
+description:
+  it: "Comandi integrati per WPStore CLI seguendo gli standard SAI"
+  en: "Built-in commands for WPStore CLI following SAI standards"
+  es: "Comandos integrados para WPStore CLI siguiendo estándares SAI"
 author: WPStore Team
 commands:
   # Installation Actions
   - name: install
-    description: Install software or service
+    description:
+      it: "Installa software o servizio"
+      en: "Install software or service"
+      es: "Instalar software o servicio"
     usage: wpcli install <software> [options]
     examples:
-      - description: Install software using default settings
+      - description:
+          it: "Installa software usando le impostazioni predefinite"
+          en: "Install software using default settings"
+          es: "Instalar software usando configuración predeterminada"
         command: wpcli install nginx
-      - description: Install software with specific provider
+      - description:
+          it: "Installa software con un provider specifico"
+          en: "Install software with specific provider"
+          es: "Instalar software con proveedor específico"
         command: wpcli install docker --provider docker.io
-      - description: Install software in dry-run mode
+      - description:
+          it: "Installa software in modalità dry-run"
+          en: "Install software in dry-run mode"
+          es: "Instalar software en modo dry-run"
         command: wpcli install mysql --dry-run
     arguments:
       - name: software
-        description: Name of the software to install
+        description:
+          it: "Nome del software da installare"
+          en: "Name of the software to install"
+          es: "Nombre del software a instalar"
         required: true
         type: string
     flags:
       - name: provider
         shorthand: p
-        description: Specify the provider to use
+        description:
+          it: "Specifica il provider da utilizzare"
+          en: "Specify the provider to use"
+          es: "Especificar el proveedor a utilizar"
         type: string
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
       - name: yes
         shorthand: y
-        description: Assume yes to all prompted questions
+        description:
+          it: "Assumi sì a tutte le domande"
+          en: "Assume yes to all prompted questions"
+          es: "Asumir sí a todas las preguntas"
         type: bool
         default: false
 
   - name: upgrade
-    description: Upgrade software or service
+    description:
+      it: "Aggiorna software o servizio"
+      en: "Upgrade software or service"
+      es: "Actualizar software o servicio"
     usage: wpcli upgrade <software> [options]
     examples:
-      - description: Upgrade software to latest version
+      - description:
+          it: "Aggiorna software all'ultima versione"
+          en: "Upgrade software to latest version"
+          es: "Actualizar software a la última versión"
         command: wpcli upgrade nginx
-      - description: Upgrade software with specific provider
+      - description:
+          it: "Aggiorna software con un provider specifico"
+          en: "Upgrade software with specific provider"
+          es: "Actualizar software con proveedor específico"
         command: wpcli upgrade docker --provider docker.io
     arguments:
       - name: software
-        description: Name of the software to upgrade
+        description:
+          it: "Nome del software da aggiornare"
+          en: "Name of the software to upgrade"
+          es: "Nombre del software a actualizar"
         required: true
         type: string
     flags:
       - name: provider
         shorthand: p
-        description: Specify the provider to use
+        description:
+          it: "Specifica il provider da utilizzare"
+          en: "Specify the provider to use"
+          es: "Especificar el proveedor a utilizar"
         type: string
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
       - name: yes
         shorthand: y
-        description: Assume yes to all prompted questions
+        description:
+          it: "Assumi sì a tutte le domande"
+          en: "Assume yes to all prompted questions"
+          es: "Asumir sí a todas las preguntas"
         type: bool
         default: false
 
   - name: uninstall
-    description: Uninstall software or service
+    description:
+      it: "Disinstalla software o servizio"
+      en: "Uninstall software or service"
+      es: "Desinstalar software o servicio"
     usage: wpcli uninstall <software> [options]
     examples:
-      - description: Uninstall software
+      - description:
+          it: "Disinstalla software"
+          en: "Uninstall software"
+          es: "Desinstalar software"
         command: wpcli uninstall nginx
-      - description: Uninstall software with specific provider
+      - description:
+          it: "Disinstalla software con un provider specifico"
+          en: "Uninstall software with specific provider"
+          es: "Desinstalar software con proveedor específico"
         command: wpcli uninstall docker --provider docker.io
     arguments:
       - name: software
-        description: Name of the software to uninstall
+        description:
+          it: "Nome del software da disinstallare"
+          en: "Name of the software to uninstall"
+          es: "Nombre del software a desinstalar"
         required: true
         type: string
     flags:
       - name: provider
         shorthand: p
-        description: Specify the provider to use
+        description:
+          it: "Specifica il provider da utilizzare"
+          en: "Specify the provider to use"
+          es: "Especificar el proveedor a utilizar"
         type: string
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
       - name: yes
         shorthand: y
-        description: Assume yes to all prompted questions
+        description:
+          it: "Assumi sì a tutte le domande"
+          en: "Assume yes to all prompted questions"
+          es: "Asumir sí a todas las preguntas"
         type: bool
         default: false
 
   # Management Actions
   - name: start
-    description: Start a software or service
+    description:
+      it: "Avvia un software o servizio"
+      en: "Start a software or service"
+      es: "Iniciar un software o servicio"
     usage: wpcli start <software> [options]
     examples:
-      - description: Start a service
+      - description:
+          it: "Avvia un servizio"
+          en: "Start a service"
+          es: "Iniciar un servicio"
         command: wpcli start nginx
     arguments:
       - name: software
-        description: Name of the software or service to start
+        description:
+          it: "Nome del software o servizio da avviare"
+          en: "Name of the software or service to start"
+          es: "Nombre del software o servicio a iniciar"
         required: true
         type: string
     flags:
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
       - name: yes
         shorthand: y
-        description: Assume yes to all prompted questions
+        description:
+          it: "Assumi sì a tutte le domande"
+          en: "Assume yes to all prompted questions"
+          es: "Asumir sí a todas las preguntas"
         type: bool
         default: false
 
   - name: stop
-    description: Stop a software or service
+    description:
+      it: "Ferma un software o servizio"
+      en: "Stop a software or service"
+      es: "Detener un software o servicio"
     usage: wpcli stop <software> [options]
     examples:
-      - description: Stop a service
+      - description:
+          it: "Ferma un servizio"
+          en: "Stop a service"
+          es: "Detener un servicio"
         command: wpcli stop nginx
     arguments:
       - name: software
-        description: Name of the software or service to stop
+        description:
+          it: "Nome del software o servizio da fermare"
+          en: "Name of the software or service to stop"
+          es: "Nombre del software o servicio a detener"
         required: true
         type: string
     flags:
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
       - name: yes
         shorthand: y
-        description: Assume yes to all prompted questions
+        description:
+          it: "Assumi sì a tutte le domande"
+          en: "Assume yes to all prompted questions"
+          es: "Asumir sí a todas las preguntas"
         type: bool
         default: false
 
   - name: restart
-    description: Restart a software or service
+    description:
+      it: "Riavvia un software o servizio"
+      en: "Restart a software or service"
+      es: "Reiniciar un software o servicio"
     usage: wpcli restart <software> [options]
     examples:
-      - description: Restart a service
+      - description:
+          it: "Riavvia un servizio"
+          en: "Restart a service"
+          es: "Reiniciar un servicio"
         command: wpcli restart nginx
     arguments:
       - name: software
-        description: Name of the software or service to restart
+        description:
+          it: "Nome del software o servizio da riavviare"
+          en: "Name of the software or service to restart"
+          es: "Nombre del software o servicio a reiniciar"
         required: true
         type: string
     flags:
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
       - name: yes
         shorthand: y
-        description: Assume yes to all prompted questions
+        description:
+          it: "Assumi sì a tutte le domande"
+          en: "Assume yes to all prompted questions"
+          es: "Asumir sí a todas las preguntas"
         type: bool
         default: false
 
   - name: enable
-    description: Enable a software or service
+    description:
+      it: "Abilita un software o servizio"
+      en: "Enable a software or service"
+      es: "Habilitar un software o servicio"
     usage: wpcli enable <software> [options]
     examples:
-      - description: Enable a service
+      - description:
+          it: "Abilita un servizio"
+          en: "Enable a service"
+          es: "Habilitar un servicio"
         command: wpcli enable nginx
     arguments:
       - name: software
-        description: Name of the software or service to enable
+        description:
+          it: "Nome del software o servizio da abilitare"
+          en: "Name of the software or service to enable"
+          es: "Nombre del software o servicio a habilitar"
         required: true
         type: string
     flags:
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
       - name: yes
         shorthand: y
-        description: Assume yes to all prompted questions
+        description:
+          it: "Assumi sì a tutte le domande"
+          en: "Assume yes to all prompted questions"
+          es: "Asumir sí a todas las preguntas"
         type: bool
         default: false
 
   - name: disable
-    description: Disable a software or service
+    description:
+      it: "Disabilita un software o servizio"
+      en: "Disable a software or service"
+      es: "Deshabilitar un software o servicio"
     usage: wpcli disable <software> [options]
     examples:
-      - description: Disable a service
+      - description:
+          it: "Disabilita un servizio"
+          en: "Disable a service"
+          es: "Deshabilitar un servicio"
         command: wpcli disable nginx
     arguments:
       - name: software
-        description: Name of the software or service to disable
+        description:
+          it: "Nome del software o servizio da disabilitare"
+          en: "Name of the software or service to disable"
+          es: "Nombre del software o servicio a deshabilitar"
         required: true
         type: string
     flags:
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
       - name: yes
         shorthand: y
-        description: Assume yes to all prompted questions
+        description:
+          it: "Assumi sì a tutte le domande"
+          en: "Assume yes to all prompted questions"
+          es: "Asumir sí a todas las preguntas"
         type: bool
         default: false
 
   # Monitoring Actions
   - name: status
-    description: Check the status of a software or service
+    description:
+      it: "Controlla lo stato di un software o servizio"
+      en: "Check the status of a software or service"
+      es: "Verificar el estado de un software o servicio"
     usage: wpcli status <software> [options]
     examples:
-      - description: Check service status
+      - description:
+          it: "Controlla lo stato di un servizio"
+          en: "Check service status"
+          es: "Verificar estado del servicio"
         command: wpcli status nginx
     arguments:
       - name: software
-        description: Name of the software or service to check status
+        description:
+          it: "Nome del software o servizio di cui controllare lo stato"
+          en: "Name of the software or service to check status"
+          es: "Nombre del software o servicio para verificar estado"
         required: true
         type: string
     flags:
       - name: verbose
         shorthand: v
-        description: Show detailed status information
+        description:
+          it: "Mostra informazioni dettagliate sullo stato"
+          en: "Show detailed status information"
+          es: "Mostrar información detallada del estado"
         type: bool
         default: false
 
   - name: monitor
-    description: Monitor a software or service
+    description:
+      it: "Monitora un software o servizio"
+      en: "Monitor a software or service"
+      es: "Monitorear un software o servicio"
     usage: wpcli monitor <software> [options]
     examples:
-      - description: Monitor a service
+      - description:
+          it: "Monitora un servizio"
+          en: "Monitor a service"
+          es: "Monitorear un servicio"
         command: wpcli monitor nginx
     arguments:
       - name: software
-        description: Name of the software or service to monitor
+        description:
+          it: "Nome del software o servizio da monitorare"
+          en: "Name of the software or service to monitor"
+          es: "Nombre del software o servicio a monitorear"
         required: true
         type: string
     flags:
       - name: interval
         shorthand: i
-        description: Monitoring interval in seconds
+        description:
+          it: "Intervallo di monitoraggio in secondi"
+          en: "Monitoring interval in seconds"
+          es: "Intervalo de monitoreo en segundos"
         type: int
         default: 5
       - name: duration
         shorthand: d
-        description: Monitoring duration in minutes (0 for infinite)
+        description:
+          it: "Durata del monitoraggio in minuti (0 per infinito)"
+          en: "Monitoring duration in minutes (0 for infinite)"
+          es: "Duración del monitoreo en minutos (0 para infinito)"
         type: int
         default: 0
 
   - name: observe
-    description: Observe a software or service
+    description:
+      it: "Osserva un software o servizio"
+      en: "Observe a software or service"
+      es: "Observar un software o servicio"
     usage: wpcli observe <software> [options]
     examples:
-      - description: Observe a service
+      - description:
+          it: "Osserva un servizio"
+          en: "Observe a service"
+          es: "Observar un servicio"
         command: wpcli observe nginx
     arguments:
       - name: software
-        description: Name of the software or service to observe
+        description:
+          it: "Nome del software o servizio da osservare"
+          en: "Name of the software or service to observe"
+          es: "Nombre del software o servicio a observar"
         required: true
         type: string
     flags:
       - name: metrics
         shorthand: m
-        description: Comma-separated list of metrics to observe
+        description:
+          it: "Elenco di metriche da osservare separato da virgole"
+          en: "Comma-separated list of metrics to observe"
+          es: "Lista de métricas a observar separadas por comas"
         type: string
       - name: format
         shorthand: f
-        description: Output format (text, json, csv)
+        description:
+          it: "Formato di output (text, json, csv)"
+          en: "Output format (text, json, csv)"
+          es: "Formato de salida (text, json, csv)"
         type: string
         default: text
 
   # Troubleshooting Actions
   - name: log
-    description: View logs for a software or service
+    description:
+      it: "Visualizza i log di un software o servizio"
+      en: "View logs for a software or service"
+      es: "Ver logs de un software o servicio"
     usage: wpcli log <software> [options]
     examples:
-      - description: View service logs
+      - description:
+          it: "Visualizza i log di un servizio"
+          en: "View service logs"
+          es: "Ver logs del servicio"
         command: wpcli log nginx
-      - description: View logs with specific level
+      - description:
+          it: "Visualizza i log con un livello specifico"
+          en: "View logs with specific level"
+          es: "Ver logs con nivel específico"
         command: wpcli log nginx --level error
     arguments:
       - name: software
-        description: Name of the software or service to view logs for
+        description:
+          it: "Nome del software o servizio di cui visualizzare i log"
+          en: "Name of the software or service to view logs for"
+          es: "Nombre del software o servicio para ver logs"
         required: true
         type: string
     flags:
       - name: level
         shorthand: l
-        description: Log level (debug, info, warning, error)
+        description:
+          it: "Livello di log (debug, info, warning, error)"
+          en: "Log level (debug, info, warning, error)"
+          es: "Nivel de log (debug, info, warning, error)"
         type: string
       - name: lines
         shorthand: n
-        description: Number of lines to show
+        description:
+          it: "Numero di righe da mostrare"
+          en: "Number of lines to show"
+          es: "Número de líneas a mostrar"
         type: int
         default: 100
       - name: follow
         shorthand: f
-        description: Follow log output
+        description:
+          it: "Segui l'output del log"
+          en: "Follow log output"
+          es: "Seguir salida del log"
         type: bool
         default: false
 
   - name: check
-    description: Check a software or service for issues
+    description:
+      it: "Controlla un software o servizio per problemi"
+      en: "Check a software or service for issues"
+      es: "Verificar un software o servicio por problemas"
     usage: wpcli check <software> [options]
     examples:
-      - description: Check a service for issues
+      - description:
+          it: "Controlla un servizio per problemi"
+          en: "Check a service for issues"
+          es: "Verificar un servicio por problemas"
         command: wpcli check nginx
     arguments:
       - name: software
-        description: Name of the software or service to check
+        description:
+          it: "Nome del software o servizio da controllare"
+          en: "Name of the software or service to check"
+          es: "Nombre del software o servicio a verificar"
         required: true
         type: string
     flags:
       - name: verbose
         shorthand: v
-        description: Show detailed check information
+        description:
+          it: "Mostra informazioni dettagliate sul controllo"
+          en: "Show detailed check information"
+          es: "Mostrar información detallada de la verificación"
         type: bool
         default: false
 
   - name: debug
-    description: Debug a software or service
+    description:
+      it: "Debugga un software o servizio"
+      en: "Debug a software or service"
+      es: "Depurar un software o servicio"
     usage: wpcli debug <software> [options]
     examples:
-      - description: Debug a service
+      - description:
+          it: "Debugga un servizio"
+          en: "Debug a service"
+          es: "Depurar un servicio"
         command: wpcli debug nginx
     arguments:
       - name: software
-        description: Name of the software or service to debug
+        description:
+          it: "Nome del software o servizio da debuggare"
+          en: "Name of the software or service to debug"
+          es: "Nombre del software o servicio a depurar"
         required: true
         type: string
     flags:
       - name: level
         shorthand: l
-        description: Debug level (basic, advanced, expert)
+        description:
+          it: "Livello di debug (basic, advanced, expert)"
+          en: "Debug level (basic, advanced, expert)"
+          es: "Nivel de depuración (basic, advanced, expert)"
         type: string
         default: basic
 
   - name: troubleshoot
-    description: Troubleshoot a software or service
+    description:
+      it: "Risolvi problemi di un software o servizio"
+      en: "Troubleshoot a software or service"
+      es: "Solucionar problemas de un software o servicio"
     usage: wpcli troubleshoot <software> [options]
     examples:
-      - description: Troubleshoot a service
+      - description:
+          it: "Risolvi problemi di un servizio"
+          en: "Troubleshoot a service"
+          es: "Solucionar problemas de un servicio"
         command: wpcli troubleshoot nginx
     arguments:
       - name: software
-        description: Name of the software or service to troubleshoot
+        description:
+          it: "Nome del software o servizio di cui risolvere i problemi"
+          en: "Name of the software or service to troubleshoot"
+          es: "Nombre del software o servicio a solucionar problemas"
         required: true
         type: string
     flags:
       - name: auto-fix
         shorthand: a
-        description: Automatically fix detected issues
+        description:
+          it: "Correggi automaticamente i problemi rilevati"
+          en: "Automatically fix detected issues"
+          es: "Corregir automáticamente problemas detectados"
         type: bool
         default: false
 
   - name: trace
-    description: Trace a software or service
+    description:
+      it: "Traccia un software o servizio"
+      en: "Trace a software or service"
+      es: "Rastrear un software o servicio"
     usage: wpcli trace <software> [options]
     examples:
-      - description: Trace a service
+      - description:
+          it: "Traccia un servizio"
+          en: "Trace a service"
+          es: "Rastrear un servicio"
         command: wpcli trace nginx
     arguments:
       - name: software
-        description: Name of the software or service to trace
+        description:
+          it: "Nome del software o servizio da tracciare"
+          en: "Name of the software or service to trace"
+          es: "Nombre del software o servicio a rastrear"
         required: true
         type: string
     flags:
       - name: duration
         shorthand: d
-        description: Trace duration in seconds
+        description:
+          it: "Durata del tracciamento in secondi"
+          en: "Trace duration in seconds"
+          es: "Duración del rastreo en segundos"
         type: int
         default: 30
 
   # Information Actions
   - name: info
-    description: Get detailed information about a software or service
+    description:
+      it: "Ottieni informazioni dettagliate su un software o servizio"
+      en: "Get detailed information about a software or service"
+      es: "Obtener información detallada sobre un software o servicio"
     usage: wpcli info <software> [options]
     examples:
-      - description: Get software information
+      - description:
+          it: "Ottieni informazioni su un software"
+          en: "Get software information"
+          es: "Obtener información del software"
         command: wpcli info nginx
-      - description: Get detailed software information
+      - description:
+          it: "Ottieni informazioni dettagliate su un software"
+          en: "Get detailed software information"
+          es: "Obtener información detallada del software"
         command: wpcli info nginx --verbose
     arguments:
       - name: software
-        description: Name of the software or service to get information about
+        description:
+          it: "Nome del software o servizio di cui ottenere informazioni"
+          en: "Name of the software or service to get information about"
+          es: "Nombre del software o servicio para obtener información"
         required: true
         type: string
     flags:
       - name: verbose
         shorthand: v
-        description: Show detailed information
+        description:
+          it: "Mostra informazioni dettagliate"
+          en: "Show detailed information"
+          es: "Mostrar información detallada"
         type: bool
         default: false
 
   - name: help
-    description: Get help for a software or service
+    description:
+      it: "Ottieni aiuto per un software o servizio"
+      en: "Get help for a software or service"
+      es: "Obtener ayuda para un software o servicio"
     usage: wpcli help <software> [options]
     examples:
-      - description: Get help for a software
+      - description:
+          it: "Ottieni aiuto per un software"
+          en: "Get help for a software"
+          es: "Obtener ayuda para un software"
         command: wpcli help nginx
     arguments:
       - name: software
-        description: Name of the software or service to get help for
+        description:
+          it: "Nome del software o servizio di cui ottenere aiuto"
+          en: "Name of the software or service to get help for"
+          es: "Nombre del software o servicio para obtener ayuda"
         required: true
         type: string
     flags:
       - name: topic
         shorthand: t
-        description: Specific help topic
+        description:
+          it: "Argomento di aiuto specifico"
+          en: "Specific help topic"
+          es: "Tema de ayuda específico"
         type: string
 
   - name: ask
-    description: Ask a question about a software or service
+    description:
+      it: "Fai una domanda su un software o servizio"
+      en: "Ask a question about a software or service"
+      es: "Hacer una pregunta sobre un software o servicio"
     usage: wpcli ask <software> <question> [options]
     examples:
-      - description: Ask a question about a software
+      - description:
+          it: "Fai una domanda su un software"
+          en: "Ask a question about a software"
+          es: "Hacer una pregunta sobre un software"
         command: wpcli ask nginx "How do I configure SSL?"
     arguments:
       - name: software
-        description: Name of the software or service
+        description:
+          it: "Nome del software o servizio"
+          en: "Name of the software or service"
+          es: "Nombre del software o servicio"
         required: true
         type: string
       - name: question
-        description: Question to ask about the software
+        description:
+          it: "Domanda da fare sul software"
+          en: "Question to ask about the software"
+          es: "Pregunta a hacer sobre el software"
         required: true
         type: string
     flags:
       - name: format
         shorthand: f
-        description: Output format (text, markdown)
+        description:
+          it: "Formato di output (text, markdown)"
+          en: "Output format (text, markdown)"
+          es: "Formato de salida (text, markdown)"
         type: string
         default: text
 
   # Discovery Actions
   - name: list
-    description: List all available software and services
+    description:
+      it: "Elenca tutti i software e servizi disponibili"
+      en: "List all available software and services"
+      es: "Listar todos los software y servicios disponibles"
     usage: wpcli list [options]
     examples:
-      - description: List all software
+      - description:
+          it: "Elenca tutti i software"
+          en: "List all software"
+          es: "Listar todos los software"
         command: wpcli list
-      - description: List software with detailed information
+      - description:
+          it: "Elenca software con informazioni dettagliate"
+          en: "List software with detailed information"
+          es: "Listar software con información detallada"
         command: wpcli list --verbose
-      - description: Search for specific software
+      - description:
+          it: "Cerca software specifici"
+          en: "Search for specific software"
+          es: "Buscar software específicos"
         command: wpcli list --search "nginx"
     flags:
       - name: verbose
         shorthand: v
-        description: Show detailed information about each software
+        description:
+          it: "Mostra informazioni dettagliate su ogni software"
+          en: "Show detailed information about each software"
+          es: "Mostrar información detallada sobre cada software"
         type: bool
         default: false
       - name: search
         shorthand: s
-        description: Search for software matching the pattern
+        description:
+          it: "Cerca software che corrispondono al pattern"
+          en: "Search for software matching the pattern"
+          es: "Buscar software que coincidan con el patrón"
         type: string
       - name: category
         shorthand: c
-        description: Filter by category (web, database, container, etc.)
+        description:
+          it: "Filtra per categoria (web, database, container, ecc.)"
+          en: "Filter by category (web, database, container, etc.)"
+          es: "Filtrar por categoría (web, database, container, etc.)"
         type: string
 
   - name: search
-    description: Search for software and services
+    description:
+      it: "Cerca software e servizi"
+      en: "Search for software and services"
+      es: "Buscar software y servicios"
     usage: wpcli search <pattern> [options]
     examples:
-      - description: Search for software
+      - description:
+          it: "Cerca software"
+          en: "Search for software"
+          es: "Buscar software"
         command: wpcli search "nginx"
-      - description: Search with specific provider
+      - description:
+          it: "Cerca con un provider specifico"
+          en: "Search with specific provider"
+          es: "Buscar con proveedor específico"
         command: wpcli search "docker" --provider docker.io
     arguments:
       - name: pattern
-        description: Search pattern to match software names
+        description:
+          it: "Pattern di ricerca per corrispondere ai nomi dei software"
+          en: "Search pattern to match software names"
+          es: "Patrón de búsqueda para coincidir con nombres de software"
         required: true
         type: string
     flags:
       - name: provider
         shorthand: p
-        description: Specify the provider to use
+        description:
+          it: "Specifica il provider da utilizzare"
+          en: "Specify the provider to use"
+          es: "Especificar el proveedor a utilizar"
         type: string
       - name: verbose
         shorthand: v
-        description: Show detailed search results
+        description:
+          it: "Mostra risultati di ricerca dettagliati"
+          en: "Show detailed search results"
+          es: "Mostrar resultados de búsqueda detallados"
         type: bool
         default: false
       - name: category
         shorthand: c
-        description: Filter by category (web, database, container, etc.)
+        description:
+          it: "Filtra per categoria (web, database, container, ecc.)"
+          en: "Filter by category (web, database, container, etc.)"
+          es: "Filtrar por categoría (web, database, container, etc.)"
         type: string
 
   # Maintenance Actions
   - name: update
-    description: Update software information
+    description:
+      it: "Aggiorna informazioni sui software"
+      en: "Update software information"
+      es: "Actualizar información de software"
     usage: wpcli update [options]
     examples:
-      - description: Update software information
+      - description:
+          it: "Aggiorna informazioni sui software"
+          en: "Update software information"
+          es: "Actualizar información de software"
         command: wpcli update
-      - description: Update with specific provider
+      - description:
+          it: "Aggiorna con un provider specifico"
+          en: "Update with specific provider"
+          es: "Actualizar con proveedor específico"
         command: wpcli update --provider docker.io
     flags:
       - name: provider
         shorthand: p
-        description: Specify the provider to use
+        description:
+          it: "Specifica il provider da utilizzare"
+          en: "Specify the provider to use"
+          es: "Especificar el proveedor a utilizar"
         type: string
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
 
   # Configuration Actions
   - name: apply
-    description: Apply configuration to a software or service
+    description:
+      it: "Applica configurazione a un software o servizio"
+      en: "Apply configuration to a software or service"
+      es: "Aplicar configuración a un software o servicio"
     usage: wpcli apply <software> <config-file> [options]
     examples:
-      - description: Apply configuration to a service
+      - description:
+          it: "Applica configurazione a un servizio"
+          en: "Apply configuration to a service"
+          es: "Aplicar configuración a un servicio"
         command: wpcli apply nginx nginx.conf
     arguments:
       - name: software
-        description: Name of the software or service to configure
+        description:
+          it: "Nome del software o servizio da configurare"
+          en: "Name of the software or service to configure"
+          es: "Nombre del software o servicio a configurar"
         required: true
         type: string
       - name: config-file
-        description: Path to the configuration file
+        description:
+          it: "Percorso del file di configurazione"
+          en: "Path to the configuration file"
+          es: "Ruta al archivo de configuración"
         required: true
         type: string
     flags:
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
       - name: yes
         shorthand: y
-        description: Assume yes to all prompted questions
+        description:
+          it: "Assumi sì a tutte le domande"
+          en: "Assume yes to all prompted questions"
+          es: "Asumir sí a todas las preguntas"
         type: bool
         default: false
 
   - name: manage
-    description: Manage a software or service
+    description:
+      it: "Gestisci un software o servizio"
+      en: "Manage a software or service"
+      es: "Gestionar un software o servicio"
     usage: wpcli manage <software> <action> [options]
     examples:
-      - description: Manage a service
+      - description:
+          it: "Gestisci un servizio"
+          en: "Manage a service"
+          es: "Gestionar un servicio"
         command: wpcli manage nginx reload
     arguments:
       - name: software
-        description: Name of the software or service to manage
+        description:
+          it: "Nome del software o servizio da gestire"
+          en: "Name of the software or service to manage"
+          es: "Nombre del software o servicio a gestionar"
         required: true
         type: string
       - name: action
-        description: Action to perform on the software
+        description:
+          it: "Azione da eseguire sul software"
+          en: "Action to perform on the software"
+          es: "Acción a realizar en el software"
         required: true
         type: string
     flags:
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
       - name: yes
         shorthand: y
-        description: Assume yes to all prompted questions
+        description:
+          it: "Assumi sì a tutte le domande"
+          en: "Assume yes to all prompted questions"
+          es: "Asumir sí a todas las preguntas"
         type: bool
         default: false
 
   - name: config
-    description: Configure a software or service
+    description:
+      it: "Configura un software o servizio"
+      en: "Configure a software or service"
+      es: "Configurar un software o servicio"
     usage: wpcli config <software> [options]
     examples:
-      - description: Configure a service
+      - description:
+          it: "Configura un servizio"
+          en: "Configure a service"
+          es: "Configurar un servicio"
         command: wpcli config nginx
-      - description: Configure with specific provider
+      - description:
+          it: "Configura con un provider specifico"
+          en: "Configure with specific provider"
+          es: "Configurar con proveedor específico"
         command: wpcli config nginx --provider nginx.org
     arguments:
       - name: software
-        description: Name of the software or service to configure
+        description:
+          it: "Nome del software o servizio da configurare"
+          en: "Name of the software or service to configure"
+          es: "Nombre del software o servicio a configurar"
         required: true
         type: string
     flags:
       - name: provider
         shorthand: p
-        description: Specify the provider to use
+        description:
+          it: "Specifica il provider da utilizzare"
+          en: "Specify the provider to use"
+          es: "Especificar el proveedor a utilizar"
         type: string
       - name: dry-run
-        description: Run in noop mode without doing changes
+        description:
+          it: "Esegui in modalità noop senza apportare modifiche"
+          en: "Run in noop mode without doing changes"
+          es: "Ejecutar en modo noop sin realizar cambios"
         type: bool
         default: false
       - name: yes
         shorthand: y
-        description: Assume yes to all prompted questions
+        description:
+          it: "Assumi sì a tutte le domande"
+          en: "Assume yes to all prompted questions"
+          es: "Asumir sí a todas las preguntas"
         type: bool
         default: false
 
   # Security Actions
   - name: scan
-    description: Scan a software or service for security issues
+    description:
+      it: "Scansiona un software o servizio per problemi di sicurezza"
+      en: "Scan a software or service for security issues"
+      es: "Escanear un software o servicio por problemas de seguridad"
     usage: wpcli scan <software> [options]
     examples:
-      - description: Scan a software for security issues
+      - description:
+          it: "Scansiona un software per problemi di sicurezza"
+          en: "Scan a software for security issues"
+          es: "Escanear un software por problemas de seguridad"
         command: wpcli scan nginx
-      - description: Scan with specific provider
+      - description:
+          it: "Scansiona con un provider specifico"
+          en: "Scan with specific provider"
+          es: "Escanear con proveedor específico"
         command: wpcli scan nginx --provider nginx.org
     arguments:
       - name: software
-        description: Name of the software or service to scan
+        description:
+          it: "Nome del software o servizio da scansionare"
+          en: "Name of the software or service to scan"
+          es: "Nombre del software o servicio a escanear"
         required: true
         type: string
     flags:
       - name: provider
         shorthand: p
-        description: Specify the provider to use
+        description:
+          it: "Specifica il provider da utilizzare"
+          en: "Specify the provider to use"
+          es: "Especificar el proveedor a utilizar"
         type: string
       - name: verbose
         shorthand: v
-        description: Show detailed scan results
+        description:
+          it: "Mostra risultati di scansione dettagliati"
+          en: "Show detailed scan results"
+          es: "Mostrar resultados de escaneo detallados"
         type: bool
         default: false
       - name: level
         shorthand: l
-        description: Scan level (basic, standard, thorough)
+        description:
+          it: "Livello di scansione (basic, standard, thorough)"
+          en: "Scan level (basic, standard, thorough)"
+          es: "Nivel de escaneo (basic, standard, thorough)"
         type: string
         default: standard
 
   - name: sbom
-    description: Generate Software Bill of Materials for a software or service
+    description:
+      it: "Genera Software Bill of Materials per un software o servizio"
+      en: "Generate Software Bill of Materials for a software or service"
+      es: "Generar Software Bill of Materials para un software o servicio"
     usage: wpcli sbom <software> [options]
     examples:
-      - description: Generate SBOM for a software
+      - description:
+          it: "Genera SBOM per un software"
+          en: "Generate SBOM for a software"
+          es: "Generar SBOM para un software"
         command: wpcli sbom nginx
-      - description: Generate SBOM with specific format
+      - description:
+          it: "Genera SBOM con un formato specifico"
+          en: "Generate SBOM with specific format"
+          es: "Generar SBOM con formato específico"
         command: wpcli sbom nginx --format spdx
     arguments:
       - name: software
-        description: Name of the software or service to generate SBOM for
+        description:
+          it: "Nome del software o servizio per cui generare SBOM"
+          en: "Name of the software or service to generate SBOM for"
+          es: "Nombre del software o servicio para generar SBOM"
         required: true
         type: string
     flags:
       - name: format
         shorthand: f
-        description: Output format (spdx, cyclonedx)
+        description:
+          it: "Formato di output (spdx, cyclonedx)"
+          en: "Output format (spdx, cyclonedx)"
+          es: "Formato de salida (spdx, cyclonedx)"
         type: string
         default: spdx
       - name: output
         shorthand: o
-        description: Output file path
+        description:
+          it: "Percorso del file di output"
+          en: "Output file path"
+          es: "Ruta del archivo de salida"
         type: string
