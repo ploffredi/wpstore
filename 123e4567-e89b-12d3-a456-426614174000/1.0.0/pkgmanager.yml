@@ -101,7 +101,7 @@ commands:
         required: false
       - name: "--format"
         shorthand: "-f"
-        type: "string"
+        type: "enum"
         description:
           it: "Formato di output (json, yaml, table)"
           en: "Output format (json, yaml, table)"

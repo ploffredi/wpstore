@@ -31,7 +31,7 @@ commands:
     flags:
       - name: "--language"
         shorthand: "-l"
-        type: "string"
+        type: "enum"
         description:
           it: "Lingua del saluto (it, en, es)"
           en: "Greeting language (it, en, es)"
