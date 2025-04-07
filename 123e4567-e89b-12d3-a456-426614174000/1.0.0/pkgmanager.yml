@@ -13,7 +13,15 @@ commands:
       it: "Installa un pacchetto"
       en: "Install a package"
       es: "Instalar un paquete"
-    usage: "install <nome-pacchetto>"
+    usage: "install <package-name>"
+    args:
+      - name: "package-name"
+        type: "string"
+        description:
+          it: "Nome del pacchetto da installare (stringa, obbligatorio)"
+          en: "Name of the package to install (string, required)"
+          es: "Nombre del paquete a instalar (cadena, obligatorio)"
+        required: true
     flags:
       - name: "--version"
         shorthand: "-v"
@@ -36,7 +44,15 @@ commands:
       it: "Rimuove un pacchetto"
       en: "Remove a package"
       es: "Eliminar un paquete"
-    usage: "remove <nome-pacchetto>"
+    usage: "remove <package-name>"
+    args:
+      - name: "package-name"
+        type: "string"
+        description:
+          it: "Nome del pacchetto da rimuovere (stringa, obbligatorio)"
+          en: "Name of the package to remove (string, required)"
+          es: "Nombre del paquete a eliminar (cadena, obligatorio)"
+        required: true
     flags:
       - name: "--purge"
         shorthand: "-p"
@@ -52,6 +68,7 @@ commands:
       en: "List installed packages"
       es: "Listar paquetes instalados"
     usage: "list"
+    args: []
     flags:
       - name: "--all"
         shorthand: "-a"

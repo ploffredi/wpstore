@@ -13,7 +13,15 @@ commands:
       it: "Stampa un saluto personalizzato"
       en: "Print a personalized greeting"
       es: "Imprimir un saludo personalizado"
-    usage: "greet [nome]"
+    usage: "greet [name]"
+    args:
+      - name: "name"
+        type: "string"
+        description:
+          it: "Nome della persona da salutare (stringa, opzionale)"
+          en: "Name of the person to greet (string, optional)"
+          es: "Nombre de la persona a saludar (cadena, opcional)"
+        required: false
     flags:
       - name: "--language"
         shorthand: "-l"
