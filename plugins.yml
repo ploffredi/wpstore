@@ -10,9 +10,6 @@ plugins:
       - version: "1.0.0"
         wasm: "pkgmanager.wasm"
         conf: "pkgmanager.yml"
-      - version: "0.9.0"
-        wasm: "pkgmanager.wasm"
-        conf: "pkgmanager.yml"
   - name: "hello"
     description:
       it: "Plugin di test che stampa un saluto"
