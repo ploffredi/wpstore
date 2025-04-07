@@ -536,7 +536,7 @@ commands:
     description:
       it: "Debugga un software o servizio"
       en: "Debug a software or service"
-      es: "Depurar un software o servicio"
+      es: "Depurar un software o servizio"
     usage: wpcli debug <software> [options]
     examples:
       - description:
