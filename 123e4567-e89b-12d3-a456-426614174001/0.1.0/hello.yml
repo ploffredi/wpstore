@@ -17,6 +17,7 @@ commands:
     flags:
       - name: "--language"
         shorthand: "-l"
+        type: "string"
         description:
           it: "Lingua del saluto (it, en, es)"
           en: "Greeting language (it, en, es)"
@@ -25,6 +26,7 @@ commands:
         default: "en"
       - name: "--formal"
         shorthand: "-f"
+        type: "bool"
         description:
           it: "Usa il formato formale"
           en: "Use formal format"

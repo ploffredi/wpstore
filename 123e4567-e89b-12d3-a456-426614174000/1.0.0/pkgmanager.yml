@@ -17,6 +17,7 @@ commands:
     flags:
       - name: "--version"
         shorthand: "-v"
+        type: "string"
         description:
           it: "Versione del pacchetto da installare"
           en: "Version of the package to install"
@@ -24,6 +25,7 @@ commands:
         required: false
       - name: "--force"
         shorthand: "-f"
+        type: "bool"
         description:
           it: "Forza l'installazione anche se già presente"
           en: "Force installation even if already present"
@@ -38,6 +40,7 @@ commands:
     flags:
       - name: "--purge"
         shorthand: "-p"
+        type: "bool"
         description:
           it: "Rimuove anche i file di configurazione"
           en: "Also remove configuration files"
@@ -52,6 +55,7 @@ commands:
     flags:
       - name: "--all"
         shorthand: "-a"
+        type: "bool"
         description:
           it: "Mostra anche i pacchetti non installati"
           en: "Show also uninstalled packages"
@@ -59,6 +63,7 @@ commands:
         required: false
       - name: "--format"
         shorthand: "-f"
+        type: "string"
         description:
           it: "Formato di output (json, yaml, table)"
           en: "Output format (json, yaml, table)"
