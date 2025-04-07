@@ -19,7 +19,6 @@ plugins:
       en: "Test plugin that prints a greeting"
       es: "Plugin de prueba que imprime un saludo"
     uuid: "123e4567-e89b-12d3-a456-426614174001"
-    subcommand: "greet"
     versions:
       - version: "0.1.0"
         wasm: "hello.wasm"
