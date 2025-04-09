@@ -4,7 +4,7 @@ builtin:
     install:
       description: "Install software or service"
       examples:
-        - description: "Install software using default settings"
+        - description: "Install software using default config"
         - description: "Install software with specific provider"
         - description: "Install software in dry-run mode"
       arguments:
@@ -14,9 +14,9 @@ builtin:
         provider:
           description: "Specify the provider to use"
         dry-run:
-          description: "Run in noop mode without doing changes"
+          description: "Run in noop mode without making changes"
         yes:
-          description: "Assume yes to all prompted questions"
+          description: "Assume yes to all questions"
 
     upgrade:
       description: "Upgrade software or service"
@@ -30,9 +30,9 @@ builtin:
         provider:
           description: "Specify the provider to use"
         dry-run:
-          description: "Run in noop mode without doing changes"
+          description: "Run in noop mode without making changes"
         yes:
-          description: "Assume yes to all prompted questions"
+          description: "Assume yes to all questions"
 
     uninstall:
       description: "Uninstall software or service"
@@ -46,9 +46,9 @@ builtin:
         provider:
           description: "Specify the provider to use"
         dry-run:
-          description: "Run in noop mode without doing changes"
+          description: "Run in noop mode without making changes"
         yes:
-          description: "Assume yes to all prompted questions"
+          description: "Assume yes to all questions"
 
     start:
       description: "Start a software or service"
@@ -59,6 +59,43 @@ builtin:
           description: "Name of the software or service to start"
       flags:
         dry-run:
-          description: "Run in noop mode without doing changes"
+          description: "Run in noop mode without making changes"
         yes:
-          description: "Assume yes to all prompted questions"
+          description: "Assume yes to all questions"
+
+    # Information Actions
+    info:
+      description: "Get detailed software information"
+      examples:
+        - description: "Get information about software"
+        - description: "Get detailed information about software"
+      arguments:
+        software:
+          description: "Name of the software or service to get information about"
+      flags:
+        verbose:
+          description: "Show detailed information"
+
+    help:
+      description: "Get help for a software or service"
+      examples:
+        - description: "Get help on software"
+      arguments:
+        software:
+          description: "Name of the software or service to get help for"
+      flags:
+        topic:
+          description: "Specific help topic"
+
+    ask:
+      description: "Ask a question about a software or service"
+      examples:
+        - description: "Ask a question about software"
+      arguments:
+        software:
+          description: "Name of the software or service"
+        question:
+          description: "Question to ask about the software"
+      flags:
+        format:
+          description: "Output format (text, markdown)"

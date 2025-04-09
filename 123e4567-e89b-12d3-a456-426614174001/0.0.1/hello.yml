@@ -20,10 +20,6 @@ commands:
         required: false
         default: false
 settings:
-  default_greeting:
-    it: "Ciao"
-    en: "Hello"
-    es: "Hola"
   supported_languages:
     - it
     - en

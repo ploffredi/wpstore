@@ -125,3 +125,39 @@ builtin:
       flags:
         verbose:
           description: "Mostra informazioni dettagliate sullo stato"
+
+    info:
+      description: "Ottieni informazioni dettagliate su un software o servizio"
+      examples:
+        - description: "Ottieni informazioni su un software"
+        - description: "Ottieni informazioni dettagliate su un software"
+      arguments:
+        software:
+          description: "Nome del software o servizio di cui ottenere informazioni"
+      flags:
+        verbose:
+          description: "Mostra informazioni dettagliate"
+
+    help:
+      description: "Ottieni aiuto per un software o servizio"
+      examples:
+        - description: "Ottieni aiuto per un software"
+      arguments:
+        software:
+          description: "Nome del software o servizio di cui ottenere aiuto"
+      flags:
+        topic:
+          description: "Argomento di aiuto specifico"
+
+    ask:
+      description: "Fai una domanda su un software o servizio"
+      examples:
+        - description: "Fai una domanda su un software"
+      arguments:
+        software:
+          description: "Nome del software o servizio"
+        question:
+          description: "Domanda da fare sul software"
+      flags:
+        format:
+          description: "Formato di output (text, markdown)"

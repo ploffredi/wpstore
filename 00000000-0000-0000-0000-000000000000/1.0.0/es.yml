@@ -62,3 +62,40 @@ builtin:
           description: "Ejecutar en modo noop sin realizar cambios"
         yes:
           description: "Asumir sí a todas las preguntas"
+
+    # Information Actions
+    info:
+      description: "Obtener información detallada sobre un software o servicio"
+      examples:
+        - description: "Obtener información del software"
+        - description: "Obtener información detallada del software"
+      arguments:
+        software:
+          description: "Nombre del software o servicio para obtener información"
+      flags:
+        verbose:
+          description: "Mostrar información detallada"
+
+    help:
+      description: "Obtener ayuda para un software o servicio"
+      examples:
+        - description: "Obtener ayuda para un software"
+      arguments:
+        software:
+          description: "Nombre del software o servicio para obtener ayuda"
+      flags:
+        topic:
+          description: "Tema de ayuda específico"
+
+    ask:
+      description: "Hacer una pregunta sobre un software o servicio"
+      examples:
+        - description: "Hacer una pregunta sobre un software"
+      arguments:
+        software:
+          description: "Nombre del software o servicio"
+        question:
+          description: "Pregunta a hacer sobre el software"
+      flags:
+        format:
+          description: "Formato de salida (text, markdown)"
