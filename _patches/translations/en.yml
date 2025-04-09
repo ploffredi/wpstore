@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Patch
+metadata:
+  name: en-plugins-translations
+patch: |-
+  - op: replace
+    path: /plugins/0/description
+    value: "Built-in commands for WPStore CLI following SAI standards"
+  - op: replace
+    path: /plugins/1/description
+    value: "Package management for custom applications"
+  - op: replace
+    path: /plugins/2/description
+    value: "Test plugin that prints a greeting"
+  - op: replace
+    path: /settings/default_language
+    value: "en"

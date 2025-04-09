@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Patch
+metadata:
+  name: it-plugins-translations
+patch: |-
+  - op: replace
+    path: /plugins/0/description
+    value: "Comandi integrati per WPStore CLI seguendo gli standard SAI"
+  - op: replace
+    path: /plugins/1/description
+    value: "Gestione pacchetti per applicazioni personalizzate"
+  - op: replace
+    path: /plugins/2/description
+    value: "Plugin di test che stampa un saluto"
+  - op: replace
+    path: /settings/default_language
+    value: "it"

@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - hello.yml
+  - ../plugins.yml
 
 # Language selection - uncomment one to apply
 patchesStrategicMerge:
@@ -10,10 +10,9 @@ patchesStrategicMerge:
   # - translations/es.yml
   # - translations/it.yml
 
-# Configuration for this plugin
+# Configuration for plugins.yml
 configMapGenerator:
-  - name: hello-translation-config
+  - name: plugins-config
     literals:
-      - plugin_name=hello
-      - plugin_version=0.1.0
+      - file_name=plugins.yml
       - supported_languages=en,es,it
