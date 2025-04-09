@@ -1,6 +1,0 @@
-builtin:
-  description: "Built-in commands for WPStore CLI following SAI standards"
-pkgmanager:
-  description: "Package management for custom applications"
-hello:
-  description: "Test plugin that prints a greeting"
