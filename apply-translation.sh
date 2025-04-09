@@ -16,15 +16,32 @@ PLUGIN=$1
 VERSION=$2
 LANG=$3
 
-# Plugin UUID mapping
-declare -A PLUGIN_UUIDS
-PLUGIN_UUIDS["builtin"]="00000000-0000-0000-0000-000000000000"
-PLUGIN_UUIDS["hello"]="123e4567-e89b-12d3-a456-426614174001"
-PLUGIN_UUIDS["pkgmanager"]="123e4567-e89b-12d3-a456-426614174000"
-PLUGIN_UUIDS["plugins"]=""  # Root directory
+# Get plugin UUID based on the plugin name
+get_plugin_uuid() {
+  case "$1" in
+    "builtin")
+      echo "00000000-0000-0000-0000-000000000000"
+      ;;
+    "hello")
+      echo "123e4567-e89b-12d3-a456-426614174001"
+      ;;
+    "pkgmanager")
+      echo "123e4567-e89b-12d3-a456-426614174000"
+      ;;
+    "plugins")
+      echo ""
+      ;;
+    *)
+      echo ""
+      ;;
+  esac
+}
+
+# Get the plugin UUID
+PLUGIN_UUID=$(get_plugin_uuid "$PLUGIN")
 
 # Verify plugin exists
-if [ -z "${PLUGIN_UUIDS[$PLUGIN]}" ] && [ "$PLUGIN" != "plugins" ]; then
+if [ -z "$PLUGIN_UUID" ] && [ "$PLUGIN" != "plugins" ]; then
   echo "Error: Unknown plugin '$PLUGIN'."
   echo "Available plugins: builtin, hello, pkgmanager, plugins"
   exit 1
@@ -33,14 +50,14 @@ fi
 # Set the paths based on the plugin and version
 if [ "$PLUGIN" == "plugins" ]; then
   PLUGIN_DIR="_patches"
+  TRANSLATION_FILE="${PLUGIN_DIR}/translations/${LANG}.yml"
   OUTPUT_FILE="plugins-${LANG}.yml"
 else
-  PLUGIN_UUID="${PLUGIN_UUIDS[$PLUGIN]}"
-  PLUGIN_DIR="${PLUGIN_UUID}/${VERSION}/_patches"
+  PLUGIN_BASE_DIR="${PLUGIN_UUID}/${VERSION}"
+  PLUGIN_DIR="${PLUGIN_BASE_DIR}/_patches"
+  TRANSLATION_FILE="${PLUGIN_DIR}/translations/${LANG}.yml"
   OUTPUT_FILE="${PLUGIN}-${VERSION}-${LANG}.yml"
 fi
-
-TRANSLATION_FILE="${PLUGIN_DIR}/translations/${LANG}.yml"
 
 # Check if plugin directory exists
 if [ ! -d "$PLUGIN_DIR" ]; then
@@ -54,18 +71,20 @@ if [ ! -f "$TRANSLATION_FILE" ]; then
   exit 1
 fi
 
-# Create a temporary kustomization.yml
-TMP_KUST="${PLUGIN_DIR}/tmp_kustomization.yml"
-cp "${PLUGIN_DIR}/kustomization.yml" "$TMP_KUST"
-
-# Update the temporary kustomization.yml to use the selected language
-sed -i.bak "s|# - translations/${LANG}.yml|- translations/${LANG}.yml|g" "$TMP_KUST"
-
-# Apply the kustomization
 echo "Applying $LANG translations for $PLUGIN version $VERSION..."
-kustomize build --load-restrictor LoadRestrictionsNone "$PLUGIN_DIR" -o "$OUTPUT_FILE"
 
-# Remove the temporary file
-rm "$TMP_KUST" "${TMP_KUST}.bak"
+if [ "$PLUGIN" == "plugins" ]; then
+  # For the plugins.yml, just copy the translation file
+  cp "$TRANSLATION_FILE" "$OUTPUT_FILE"
+else
+  # For other plugins, merge the base YAML with the translations
+  # Copy the original file to the output
+  cp "${PLUGIN_BASE_DIR}/${PLUGIN}.yml" "$OUTPUT_FILE"
+
+  # Append the translations from the translation file
+  echo "" >> "$OUTPUT_FILE"
+  echo "# Translations added from ${LANG}.yml" >> "$OUTPUT_FILE"
+  cat "$TRANSLATION_FILE" >> "$OUTPUT_FILE"
+fi
 
 echo "Done! Output saved to $OUTPUT_FILE"
