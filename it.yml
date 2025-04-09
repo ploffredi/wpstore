@@ -1,0 +1,6 @@
+builtin:
+  description: "Comandi integrati per WPStore CLI seguendo gli standard SAI"
+pkgmanager:
+  description: "Gestione pacchetti per applicazioni custom"
+hello:
+  description: "Plugin di test che stampa un saluto"

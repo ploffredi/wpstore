@@ -1,0 +1,10 @@
+hello:
+  description: "Test plugin that prints a greeting"
+  commands:
+    greet:
+      description: "Print a personalized greeting"
+      flags:
+        --language:
+          description: "Greeting language (it, en, es)"
+        --formal:
+          description: "Use formal format"

@@ -1,0 +1,10 @@
+hello:
+  description: "Plugin de prueba que imprime un saludo"
+  commands:
+    greet:
+      description: "Imprimir un saludo personalizado"
+      flags:
+        --language:
+          description: "Idioma del saludo (it, en, es)"
+        --formal:
+          description: "Usar formato formal"

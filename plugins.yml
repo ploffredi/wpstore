@@ -1,18 +1,12 @@
 plugins:
   - name: "builtin"
-    description:
-      it: "Comandi integrati per WPStore CLI seguendo gli standard SAI"
-      en: "Built-in commands for WPStore CLI following SAI standards"
-      es: "Comandos integrados para WPStore CLI siguiendo estándares SAI"
+    description: "Built-in commands for WPStore CLI following SAI standards"
     uuid: "00000000-0000-0000-0000-000000000000"
     versions:
       - version: "1.0.0"
         conf: "builtin.yml"
   - name: "pkgmanager"
-    description:
-      it: "Gestione pacchetti per applicazioni custom"
-      en: "Package management for custom applications"
-      es: "Gestión de paquetes para aplicaciones personalizadas"
+    description: "Package management for custom applications"
     uuid: "123e4567-e89b-12d3-a456-426614174000"
     subcommand: "pkg"
     versions:
@@ -20,10 +14,7 @@ plugins:
         wasm: "pkgmanager.wasm"
         conf: "pkgmanager.yml"
   - name: "hello"
-    description:
-      it: "Plugin di test che stampa un saluto"
-      en: "Test plugin that prints a greeting"
-      es: "Plugin de prueba que imprime un saludo"
+    description: "Test plugin that prints a greeting"
     uuid: "123e4567-e89b-12d3-a456-426614174001"
     versions:
       - version: "0.1.0"

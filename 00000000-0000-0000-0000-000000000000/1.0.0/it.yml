@@ -1,0 +1,127 @@
+builtin:
+  description: "Comandi integrati per WPStore CLI seguendo gli standard SAI"
+  commands:
+    install:
+      description: "Installa software o servizio"
+      examples:
+        - description: "Installa software usando le impostazioni predefinite"
+        - description: "Installa software con un provider specifico"
+        - description: "Installa software in modalità dry-run"
+      arguments:
+        software:
+          description: "Nome del software da installare"
+      flags:
+        provider:
+          description: "Specifica il provider da utilizzare"
+        dry-run:
+          description: "Esegui in modalità noop senza apportare modifiche"
+        yes:
+          description: "Assumi sì a tutte le domande"
+
+    upgrade:
+      description: "Aggiorna software o servizio"
+      examples:
+        - description: "Aggiorna software all'ultima versione"
+        - description: "Aggiorna software con un provider specifico"
+      arguments:
+        software:
+          description: "Nome del software da aggiornare"
+      flags:
+        provider:
+          description: "Specifica il provider da utilizzare"
+        dry-run:
+          description: "Esegui in modalità noop senza apportare modifiche"
+        yes:
+          description: "Assumi sì a tutte le domande"
+
+    uninstall:
+      description: "Disinstalla software o servizio"
+      examples:
+        - description: "Disinstalla software"
+        - description: "Disinstalla software con un provider specifico"
+      arguments:
+        software:
+          description: "Nome del software da disinstallare"
+      flags:
+        provider:
+          description: "Specifica il provider da utilizzare"
+        dry-run:
+          description: "Esegui in modalità noop senza apportare modifiche"
+        yes:
+          description: "Assumi sì a tutte le domande"
+
+    start:
+      description: "Avvia un software o servizio"
+      examples:
+        - description: "Avvia un servizio"
+      arguments:
+        software:
+          description: "Nome del software o servizio da avviare"
+      flags:
+        dry-run:
+          description: "Esegui in modalità noop senza apportare modifiche"
+        yes:
+          description: "Assumi sì a tutte le domande"
+
+    stop:
+      description: "Ferma un software o servizio"
+      examples:
+        - description: "Ferma un servizio"
+      arguments:
+        software:
+          description: "Nome del software o servizio da fermare"
+      flags:
+        dry-run:
+          description: "Esegui in modalità noop senza apportare modifiche"
+        yes:
+          description: "Assumi sì a tutte le domande"
+
+    restart:
+      description: "Riavvia un software o servizio"
+      examples:
+        - description: "Riavvia un servizio"
+      arguments:
+        software:
+          description: "Nome del software o servizio da riavviare"
+      flags:
+        dry-run:
+          description: "Esegui in modalità noop senza apportare modifiche"
+        yes:
+          description: "Assumi sì a tutte le domande"
+
+    enable:
+      description: "Abilita un software o servizio"
+      examples:
+        - description: "Abilita un servizio"
+      arguments:
+        software:
+          description: "Nome del software o servizio da abilitare"
+      flags:
+        dry-run:
+          description: "Esegui in modalità noop senza apportare modifiche"
+        yes:
+          description: "Assumi sì a tutte le domande"
+
+    disable:
+      description: "Disabilita un software o servizio"
+      examples:
+        - description: "Disabilita un servizio"
+      arguments:
+        software:
+          description: "Nome del software o servizio da disabilitare"
+      flags:
+        dry-run:
+          description: "Esegui in modalità noop senza apportare modifiche"
+        yes:
+          description: "Assumi sì a tutte le domande"
+
+    status:
+      description: "Controlla lo stato di un software o servizio"
+      examples:
+        - description: "Controlla lo stato di un servizio"
+      arguments:
+        software:
+          description: "Nome del software o servizio di cui controllare lo stato"
+      flags:
+        verbose:
+          description: "Mostra informazioni dettagliate sullo stato"

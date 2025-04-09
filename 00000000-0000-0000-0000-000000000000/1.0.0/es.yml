@@ -1,0 +1,64 @@
+builtin:
+  description: "Comandos integrados para WPStore CLI siguiendo estándares SAI"
+  commands:
+    install:
+      description: "Instalar software o servicio"
+      examples:
+        - description: "Instalar software usando configuración predeterminada"
+        - description: "Instalar software con proveedor específico"
+        - description: "Instalar software en modo dry-run"
+      arguments:
+        software:
+          description: "Nombre del software a instalar"
+      flags:
+        provider:
+          description: "Especificar el proveedor a utilizar"
+        dry-run:
+          description: "Ejecutar en modo noop sin realizar cambios"
+        yes:
+          description: "Asumir sí a todas las preguntas"
+
+    upgrade:
+      description: "Actualizar software o servicio"
+      examples:
+        - description: "Actualizar software a la última versión"
+        - description: "Actualizar software con proveedor específico"
+      arguments:
+        software:
+          description: "Nombre del software a actualizar"
+      flags:
+        provider:
+          description: "Especificar el proveedor a utilizar"
+        dry-run:
+          description: "Ejecutar en modo noop sin realizar cambios"
+        yes:
+          description: "Asumir sí a todas las preguntas"
+
+    uninstall:
+      description: "Desinstalar software o servicio"
+      examples:
+        - description: "Desinstalar software"
+        - description: "Desinstalar software con proveedor específico"
+      arguments:
+        software:
+          description: "Nombre del software a desinstalar"
+      flags:
+        provider:
+          description: "Especificar el proveedor a utilizar"
+        dry-run:
+          description: "Ejecutar en modo noop sin realizar cambios"
+        yes:
+          description: "Asumir sí a todas las preguntas"
+
+    start:
+      description: "Iniciar un software o servicio"
+      examples:
+        - description: "Iniciar un servicio"
+      arguments:
+        software:
+          description: "Nombre del software o servicio a iniciar"
+      flags:
+        dry-run:
+          description: "Ejecutar en modo noop sin realizar cambios"
+        yes:
+          description: "Asumir sí a todas las preguntas"

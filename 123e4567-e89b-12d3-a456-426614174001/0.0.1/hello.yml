@@ -1,34 +1,22 @@
 name: "hello"
 version: "0.0.1"
-description:
-  it: "Plugin di test che stampa un saluto"
-  en: "Test plugin that prints a greeting"
-  es: "Plugin de prueba que imprime un saludo"
+description: "Test plugin that prints a greeting"
 author: "System"
 source_repo: "https://github.com/ploffredi/wpstore-plugins/tree/main/hello"
 plugin_type: "go"
 commands:
   - name: "greet"
-    description:
-      it: "Stampa un saluto personalizzato"
-      en: "Print a personalized greeting"
-      es: "Imprimir un saludo personalizado"
+    description: "Print a personalized greeting"
     usage: "greet [nome]"
     flags:
       - name: "--language"
         shorthand: "-l"
-        description:
-          it: "Lingua del saluto (it, en, es)"
-          en: "Greeting language (it, en, es)"
-          es: "Idioma del saludo (it, en, es)"
+        description: "Greeting language (it, en, es)"
         required: false
         default: "en"
       - name: "--formal"
         shorthand: "-f"
-        description:
-          it: "Usa il formato formale"
-          en: "Use formal format"
-          es: "Usar formato formal"
+        description: "Use formal format"
         required: false
         default: false
 settings:

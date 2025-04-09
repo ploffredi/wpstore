@@ -1,51 +1,41 @@
 name: "hello"
 version: "0.1.0"
-description:
-  it: "Plugin di test che stampa un saluto"
-  en: "Test plugin that prints a greeting"
-  es: "Plugin de prueba que imprime un saludo"
+description: "Test plugin that prints a greeting"
 author: "System"
 source_repo: "https://github.com/ploffredi/wpstore-plugins/tree/main/hello"
 plugin_type: "go"
 commands:
   - name: "greet"
-    description:
-      it: "Stampa un saluto personalizzato"
-      en: "Print a personalized greeting"
-      es: "Imprimir un saludo personalizado"
+    description: "Print a personalized greeting"
     usage: "greet [name]"
     examples:
-      - command: "wpcli greet # Print a default greeting"
-      - command: "wpcli greet John # Print a greeting with a name"
-      - command: "wpcli greet --language it # Print a greeting in Italian"
-      - command: "wpcli greet --language es --formal # Print a formal greeting in Spanish"
-      - command: "wpcli greet Maria --language it --formal # Print a formal greeting with a name in Italian"
+      - description: "Print a default greeting"
+        command: "wpcli greet"
+      - description: "Print a greeting with a name"
+        command: "wpcli greet John"
+      - description: "Print a greeting in Italian"
+        command: "wpcli greet --language it"
+      - description: "Print a formal greeting in Spanish"
+        command: "wpcli greet --language es --formal"
+      - description: "Print a formal greeting with a name in Italian"
+        command: "wpcli greet Maria --language it --formal"
     args:
       - name: "name"
         type: "string"
-        description:
-          it: "Nome della persona da salutare (stringa, opzionale)"
-          en: "Name of the person to greet (string, optional)"
-          es: "Nombre de la persona a saludar (cadena, opcional)"
+        description: "Name of the person to greet (string, optional)"
         required: false
     flags:
       - name: "--language"
         shorthand: "-l"
         type: "enum"
-        description:
-          it: "Lingua del saluto (it, en, es)"
-          en: "Greeting language (it, en, es)"
-          es: "Idioma del saludo (it, en, es)"
+        description: "Greeting language (it, en, es)"
         required: false
         default: "en"
         valid_values: ["it", "en", "es"]
       - name: "--formal"
         shorthand: "-f"
         type: "bool"
-        description:
-          it: "Usa il formato formale"
-          en: "Use formal format"
-          es: "Usar formato formal"
+        description: "Use formal format"
         required: false
         default: false
 settings:

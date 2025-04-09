@@ -1,0 +1,44 @@
+pkgmanager:
+  description: "Gestione pacchetti per applicazioni custom"
+  commands:
+    install:
+      description: "Installa un pacchetto"
+      examples:
+        - description: "Installa l'ultima versione di un pacchetto"
+        - description: "Installa una versione specifica di un pacchetto"
+        - description: "Forza l'installazione anche se già presente"
+        - description: "Installa una versione specifica con flag force"
+      args:
+        package-name:
+          description: "Nome del pacchetto da installare (stringa, obbligatorio)"
+      flags:
+        --version:
+          description: "Versione del pacchetto da installare"
+        --force:
+          description: "Forza l'installazione anche se già presente"
+
+    remove:
+      description: "Rimuove un pacchetto"
+      examples:
+        - description: "Rimuove un pacchetto"
+        - description: "Rimuove un pacchetto e i suoi file di configurazione"
+      args:
+        package-name:
+          description: "Nome del pacchetto da rimuovere (stringa, obbligatorio)"
+      flags:
+        --purge:
+          description: "Rimuove anche i file di configurazione"
+
+    list:
+      description: "Lista i pacchetti installati"
+      examples:
+        - description: "Elenca solo i pacchetti installati"
+        - description: "Elenca tutti i pacchetti inclusi quelli non installati"
+        - description: "Elenca i pacchetti in formato JSON"
+        - description: "Elenca i pacchetti in formato YAML"
+        - description: "Elenca tutti i pacchetti in formato tabella"
+      flags:
+        --all:
+          description: "Mostra anche i pacchetti non installati"
+        --format:
+          description: "Formato di output (json, yaml, table)"
