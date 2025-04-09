@@ -1,0 +1,135 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Patch
+metadata:
+  name: en-translations
+patch: |-
+  - op: replace
+    path: /description
+    value: "Built-in commands for WPStore CLI following SAI standards"
+  - op: replace
+    path: /commands/install/description
+    value: "Install software or service"
+  - op: replace
+    path: /commands/install/examples/0/description
+    value: "Install software using default config"
+  - op: replace
+    path: /commands/install/examples/1/description
+    value: "Install software with specific provider"
+  - op: replace
+    path: /commands/install/examples/2/description
+    value: "Install software in dry-run mode"
+  - op: replace
+    path: /commands/install/arguments/software/description
+    value: "Name of the software to install"
+  - op: replace
+    path: /commands/install/flags/provider/description
+    value: "Specify the provider to use"
+  - op: replace
+    path: /commands/install/flags/dry-run/description
+    value: "Run in noop mode without making changes"
+  - op: replace
+    path: /commands/install/flags/yes/description
+    value: "Assume yes to all questions"
+
+  - op: replace
+    path: /commands/upgrade/description
+    value: "Upgrade software or service"
+  - op: replace
+    path: /commands/upgrade/examples/0/description
+    value: "Upgrade software to latest version"
+  - op: replace
+    path: /commands/upgrade/examples/1/description
+    value: "Upgrade software with specific provider"
+  - op: replace
+    path: /commands/upgrade/arguments/software/description
+    value: "Name of the software to upgrade"
+  - op: replace
+    path: /commands/upgrade/flags/provider/description
+    value: "Specify the provider to use"
+  - op: replace
+    path: /commands/upgrade/flags/dry-run/description
+    value: "Run in noop mode without making changes"
+  - op: replace
+    path: /commands/upgrade/flags/yes/description
+    value: "Assume yes to all questions"
+
+  - op: replace
+    path: /commands/uninstall/description
+    value: "Uninstall software or service"
+  - op: replace
+    path: /commands/uninstall/examples/0/description
+    value: "Uninstall software"
+  - op: replace
+    path: /commands/uninstall/examples/1/description
+    value: "Uninstall software with specific provider"
+  - op: replace
+    path: /commands/uninstall/arguments/software/description
+    value: "Name of the software to uninstall"
+  - op: replace
+    path: /commands/uninstall/flags/provider/description
+    value: "Specify the provider to use"
+  - op: replace
+    path: /commands/uninstall/flags/dry-run/description
+    value: "Run in noop mode without making changes"
+  - op: replace
+    path: /commands/uninstall/flags/yes/description
+    value: "Assume yes to all questions"
+
+  - op: replace
+    path: /commands/start/description
+    value: "Start a software or service"
+  - op: replace
+    path: /commands/start/examples/0/description
+    value: "Start a service"
+  - op: replace
+    path: /commands/start/arguments/software/description
+    value: "Name of the software or service to start"
+  - op: replace
+    path: /commands/start/flags/dry-run/description
+    value: "Run in noop mode without making changes"
+  - op: replace
+    path: /commands/start/flags/yes/description
+    value: "Assume yes to all questions"
+
+  # Information Actions
+  - op: add
+    path: /commands/info
+    value:
+      description: "Get detailed software information"
+      examples:
+        - description: "Get information about software"
+        - description: "Get detailed information about software"
+      arguments:
+        software:
+          description: "Name of the software or service to get information about"
+      flags:
+        verbose:
+          description: "Show detailed information"
+
+  - op: add
+    path: /commands/help
+    value:
+      description: "Get help for a software or service"
+      examples:
+        - description: "Get help on software"
+      arguments:
+        software:
+          description: "Name of the software or service to get help for"
+      flags:
+        topic:
+          description: "Specific help topic"
+
+  - op: add
+    path: /commands/ask
+    value:
+      description: "Ask a question about a software or service"
+      examples:
+        - description: "Ask a question about software"
+      arguments:
+        software:
+          description: "Name of the software or service"
+        question:
+          description: "Question to ask about the software"
+      flags:
+        format:
+          description: "Output format (text, markdown)"

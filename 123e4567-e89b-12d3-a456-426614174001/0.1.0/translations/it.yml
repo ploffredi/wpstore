@@ -1,0 +1,35 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Patch
+metadata:
+  name: it-translations-hello
+patch: |-
+  - op: replace
+    path: /description
+    value: "Plugin di test che stampa un saluto"
+  - op: replace
+    path: /commands/0/description
+    value: "Stampa un saluto personalizzato"
+  - op: replace
+    path: /commands/0/examples/0/description
+    value: "Stampa un saluto predefinito"
+  - op: replace
+    path: /commands/0/examples/1/description
+    value: "Stampa un saluto con un nome"
+  - op: replace
+    path: /commands/0/examples/2/description
+    value: "Stampa un saluto in italiano"
+  - op: replace
+    path: /commands/0/examples/3/description
+    value: "Stampa un saluto formale in spagnolo"
+  - op: replace
+    path: /commands/0/examples/4/description
+    value: "Stampa un saluto formale con un nome in italiano"
+  - op: replace
+    path: /commands/0/args/0/description
+    value: "Nome della persona da salutare (stringa, opzionale)"
+  - op: replace
+    path: /commands/0/flags/0/description
+    value: "Lingua del saluto (it, en, es)"
+  - op: replace
+    path: /commands/0/flags/1/description
+    value: "Usa formato formale"
