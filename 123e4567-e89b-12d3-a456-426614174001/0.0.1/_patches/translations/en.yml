@@ -1,0 +1,12 @@
+- op: replace
+  path: /description
+  value: Test plugin that prints a greeting
+- op: replace
+  path: /commands/[greet:0]/description
+  value: Print a personalized greeting
+- op: replace
+  path: /commands/[greet:0]/flags/[language:0]/description
+  value: Greeting language (it, en, es)
+- op: replace
+  path: /commands/[greet:0]/flags/[formal:1]/description
+  value: Use formal format

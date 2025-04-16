@@ -1,0 +1,33 @@
+- op: replace
+  path: /description
+  value: Package management for custom applications
+- op: replace
+  path: /commands/[install:0]/description
+  value: Install a package
+- op: replace
+  path: /commands/[install:0]/args/[package-name:0]/description
+  value: Name of the package to install (string, required)
+- op: replace
+  path: /commands/[install:0]/flags/[--version:0]/description
+  value: Version of the package to install
+- op: replace
+  path: /commands/[install:0]/flags/[--force:1]/description
+  value: Force installation even if already present
+- op: replace
+  path: /commands/[remove:1]/description
+  value: Remove a package
+- op: replace
+  path: /commands/[remove:1]/args/[package-name:0]/description
+  value: Name of the package to remove (string, required)
+- op: replace
+  path: /commands/[remove:1]/flags/[--purge:0]/description
+  value: Also remove configuration files
+- op: replace
+  path: /commands/[list:2]/description
+  value: List installed packages
+- op: replace
+  path: /commands/[list:2]/flags/[--all:0]/description
+  value: Show also uninstalled packages
+- op: replace
+  path: /commands/[list:2]/flags/[--format:1]/description
+  value: Output format (json, yaml, table)

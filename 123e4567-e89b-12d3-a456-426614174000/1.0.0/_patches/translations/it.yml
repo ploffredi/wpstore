@@ -1,0 +1,33 @@
+- op: replace
+  path: /description
+  value: Gestione dei pacchetti per applicazioni personalizzate
+- op: replace
+  path: /commands/[install:0]/description
+  value: Installa un pacchetto
+- op: replace
+  path: /commands/[install:0]/args/[package-name:0]/description
+  value: Nome del pacchetto da installare (stringa, richiesto)
+- op: replace
+  path: /commands/[install:0]/flags/[version:0]/description
+  value: Versione del pacchetto da installare
+- op: replace
+  path: /commands/[install:0]/flags/[force:1]/description
+  value: Forza l'installazione anche se già presente
+- op: replace
+  path: /commands/[remove:1]/description
+  value: Rimuovi un pacchetto
+- op: replace
+  path: /commands/[remove:1]/args/[package-name:0]/description
+  value: Nome del pacchetto da rimuovere (stringa, richiesto)
+- op: replace
+  path: /commands/[remove:1]/flags/[purge:0]/description
+  value: Rimuovi anche i file di configurazione
+- op: replace
+  path: /commands/[list:2]/description
+  value: Elenca i pacchetti installati
+- op: replace
+  path: /commands/[list:2]/flags/[all:0]/description
+  value: Mostra anche i pacchetti non installati
+- op: replace
+  path: /commands/[list:2]/flags/[format:1]/description
+  value: Formato di output (json, yaml, tabella)

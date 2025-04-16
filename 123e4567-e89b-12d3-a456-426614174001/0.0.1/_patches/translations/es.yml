@@ -1,0 +1,12 @@
+- op: replace
+  path: /description
+  value: Plugin de prueba que imprime un saludo
+- op: replace
+  path: /commands/[greet:0]/description
+  value: Imprimir un saludo personalizado
+- op: replace
+  path: /commands/[greet:0]/flags/[language:0]/description
+  value: Idioma del saludo (it, en, es)
+- op: replace
+  path: /commands/[greet:0]/flags/[formal:1]/description
+  value: Usar formato formal

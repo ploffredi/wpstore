@@ -1,0 +1,342 @@
+- op: replace
+  path: /description
+  value: Built-in commands for WPStore CLI following SAI standards
+- op: replace
+  path: /commands/[install:0]/description
+  value: Install software or service
+- op: replace
+  path: /commands/[install:0]/arguments/[software:0]/description
+  value: Name of the software to install
+- op: replace
+  path: /commands/[install:0]/flags/[provider:0]/description
+  value: Specify the provider to use
+- op: replace
+  path: /commands/[install:0]/flags/[dry-run:1]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[install:0]/flags/[yes:2]/description
+  value: Assume yes to all prompted questions
+- op: replace
+  path: /commands/[upgrade:1]/description
+  value: Upgrade software or service
+- op: replace
+  path: /commands/[upgrade:1]/arguments/[software:0]/description
+  value: Name of the software to upgrade
+- op: replace
+  path: /commands/[upgrade:1]/flags/[provider:0]/description
+  value: Specify the provider to use
+- op: replace
+  path: /commands/[upgrade:1]/flags/[dry-run:1]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[upgrade:1]/flags/[yes:2]/description
+  value: Assume yes to all prompted questions
+- op: replace
+  path: /commands/[uninstall:2]/description
+  value: Uninstall software or service
+- op: replace
+  path: /commands/[uninstall:2]/arguments/[software:0]/description
+  value: Name of the software to uninstall
+- op: replace
+  path: /commands/[uninstall:2]/flags/[provider:0]/description
+  value: Specify the provider to use
+- op: replace
+  path: /commands/[uninstall:2]/flags/[dry-run:1]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[uninstall:2]/flags/[yes:2]/description
+  value: Assume yes to all prompted questions
+- op: replace
+  path: /commands/[start:3]/description
+  value: Start a software or service
+- op: replace
+  path: /commands/[start:3]/arguments/[software:0]/description
+  value: Name of the software or service to start
+- op: replace
+  path: /commands/[start:3]/flags/[dry-run:0]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[start:3]/flags/[yes:1]/description
+  value: Assume yes to all prompted questions
+- op: replace
+  path: /commands/[stop:4]/description
+  value: Stop a software or service
+- op: replace
+  path: /commands/[stop:4]/arguments/[software:0]/description
+  value: Name of the software or service to stop
+- op: replace
+  path: /commands/[stop:4]/flags/[dry-run:0]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[stop:4]/flags/[yes:1]/description
+  value: Assume yes to all prompted questions
+- op: replace
+  path: /commands/[restart:5]/description
+  value: Restart a software or service
+- op: replace
+  path: /commands/[restart:5]/arguments/[software:0]/description
+  value: Name of the software or service to restart
+- op: replace
+  path: /commands/[restart:5]/flags/[dry-run:0]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[restart:5]/flags/[yes:1]/description
+  value: Assume yes to all prompted questions
+- op: replace
+  path: /commands/[enable:6]/description
+  value: Enable a software or service
+- op: replace
+  path: /commands/[enable:6]/arguments/[software:0]/description
+  value: Name of the software or service to enable
+- op: replace
+  path: /commands/[enable:6]/flags/[dry-run:0]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[enable:6]/flags/[yes:1]/description
+  value: Assume yes to all prompted questions
+- op: replace
+  path: /commands/[disable:7]/description
+  value: Disable a software or service
+- op: replace
+  path: /commands/[disable:7]/arguments/[software:0]/description
+  value: Name of the software or service to disable
+- op: replace
+  path: /commands/[disable:7]/flags/[dry-run:0]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[disable:7]/flags/[yes:1]/description
+  value: Assume yes to all prompted questions
+- op: replace
+  path: /commands/[check:8]/description
+  value: Check the status of a software or service
+- op: replace
+  path: /commands/[check:8]/arguments/[software:0]/description
+  value: Name of the software or service to check status
+- op: replace
+  path: /commands/[check:8]/flags/[detailed:0]/description
+  value: Show detailed status information
+- op: replace
+  path: /commands/[monitor:9]/description
+  value: Monitor a software or service
+- op: replace
+  path: /commands/[monitor:9]/arguments/[software:0]/description
+  value: Name of the software or service to monitor
+- op: replace
+  path: /commands/[monitor:9]/flags/[interval:0]/description
+  value: Monitoring interval in seconds
+- op: replace
+  path: /commands/[monitor:9]/flags/[duration:1]/description
+  value: Monitoring duration in minutes (0 for infinite)
+- op: replace
+  path: /commands/[observe:10]/description
+  value: Observe a software or service
+- op: replace
+  path: /commands/[observe:10]/arguments/[software:0]/description
+  value: Name of the software or service to observe
+- op: replace
+  path: /commands/[observe:10]/flags/[metrics:0]/description
+  value: Comma-separated list of metrics to observe
+- op: replace
+  path: /commands/[observe:10]/flags/[output:1]/description
+  value: Output format (text, json, csv)
+- op: replace
+  path: /commands/[viewlogs:11]/description
+  value: View logs of a software or service
+- op: replace
+  path: /commands/[viewlogs:11]/arguments/[software:0]/description
+  value: Name of the software or service to view logs
+- op: replace
+  path: /commands/[viewlogs:11]/flags/[level:0]/description
+  value: Log level (debug, info, warning, error)
+- op: replace
+  path: /commands/[viewlogs:11]/flags/[lines:1]/description
+  value: Number of lines to show
+- op: replace
+  path: /commands/[viewlogs:11]/flags/[follow:2]/description
+  value: Follow log output
+- op: replace
+  path: /commands/[checkissues:12]/description
+  value: Check a software or service for issues
+- op: replace
+  path: /commands/[checkissues:12]/arguments/[software:0]/description
+  value: Name of the software or service to check
+- op: replace
+  path: /commands/[checkissues:12]/flags/[detailed:0]/description
+  value: Show detailed check information
+- op: replace
+  path: /commands/[debug:13]/description
+  value: Debug a software or service
+- op: replace
+  path: /commands/[debug:13]/arguments/[software:0]/description
+  value: Name of the software or service to debug
+- op: replace
+  path: /commands/[debug:13]/flags/[level:0]/description
+  value: Debug level (basic, advanced, expert)
+- op: replace
+  path: /commands/[troubleshoot:14]/description
+  value: Troubleshoot a software or service
+- op: replace
+  path: /commands/[troubleshoot:14]/arguments/[software:0]/description
+  value: Name of the software or service to troubleshoot
+- op: replace
+  path: /commands/[troubleshoot:14]/flags/[automatic:0]/description
+  value: Automatically fix detected issues
+- op: replace
+  path: /commands/[trace:15]/description
+  value: Trace a software or service
+- op: replace
+  path: /commands/[trace:15]/arguments/[software:0]/description
+  value: Name of the software or service to trace
+- op: replace
+  path: /commands/[trace:15]/flags/[duration:0]/description
+  value: Trace duration in seconds
+- op: replace
+  path: /commands/[getinfo:16]/description
+  value: Get detailed information about a software or service
+- op: replace
+  path: /commands/[getinfo:16]/arguments/[software:0]/description
+  value: Name of the software or service to get information about
+- op: replace
+  path: /commands/[getinfo:16]/flags/[detailed:0]/description
+  value: Show detailed information
+- op: replace
+  path: /commands/[gethelp:17]/description
+  value: Get help for a software or service
+- op: replace
+  path: /commands/[gethelp:17]/arguments/[software:0]/description
+  value: Name of the software or service to get help for
+- op: replace
+  path: /commands/[gethelp:17]/flags/[topic:0]/description
+  value: Specific help topic
+- op: replace
+  path: /commands/[askquestion:18]/description
+  value: Ask a question about a software or service
+- op: replace
+  path: /commands/[askquestion:18]/arguments/[software:0]/description
+  value: Name of the software or service
+- op: replace
+  path: /commands/[askquestion:18]/arguments/[question:1]/description
+  value: Question to ask about the software
+- op: replace
+  path: /commands/[askquestion:18]/flags/[format:0]/description
+  value: Output format (text, markdown)
+- op: replace
+  path: /commands/[listall:19]/description
+  value: List all available software and services
+- op: replace
+  path: /commands/[listall:19]/flags/[detailed:0]/description
+  value: Show detailed information about each software
+- op: replace
+  path: /commands/[listall:19]/flags/[pattern:1]/description
+  value: Search for software matching the pattern
+- op: replace
+  path: /commands/[listall:19]/flags/[category:2]/description
+  value: Filter by category (web, database, container, etc.)
+- op: replace
+  path: /commands/[search:20]/description
+  value: Search for software and services
+- op: replace
+  path: /commands/[search:20]/arguments/[pattern:0]/description
+  value: Search pattern to match software names
+- op: replace
+  path: /commands/[search:20]/flags/[provider:0]/description
+  value: Specify the provider to use
+- op: replace
+  path: /commands/[search:20]/flags/[results:1]/description
+  value: Show detailed search results
+- op: replace
+  path: /commands/[search:20]/flags/[category:2]/description
+  value: Filter by category (web, database, container, etc.)
+- op: replace
+  path: /commands/[updateinfo:21]/description
+  value: Update software information
+- op: replace
+  path: /commands/[updateinfo:21]/flags/[provider:0]/description
+  value: Specify the provider to use
+- op: replace
+  path: /commands/[updateinfo:21]/flags/[dry-run:1]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[applyconfig:22]/description
+  value: Apply configuration to a software or service
+- op: replace
+  path: /commands/[applyconfig:22]/arguments/[software:0]/description
+  value: Name of the software or service to configure
+- op: replace
+  path: /commands/[applyconfig:22]/arguments/[path:1]/description
+  value: Path to the configuration file
+- op: replace
+  path: /commands/[applyconfig:22]/flags/[dry-run:0]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[applyconfig:22]/flags/[yes:2]/description
+  value: Assume yes to all prompted questions
+- op: replace
+  path: /commands/[manage:23]/description
+  value: Manage a software or service
+- op: replace
+  path: /commands/[manage:23]/arguments/[software:0]/description
+  value: Name of the software or service to manage
+- op: replace
+  path: /commands/[manage:23]/arguments/[action:1]/description
+  value: Action to perform on the software
+- op: replace
+  path: /commands/[manage:23]/flags/[dry-run:0]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[manage:23]/flags/[yes:2]/description
+  value: Assume yes to all prompted questions
+- op: replace
+  path: /commands/[configure:24]/description
+  value: Configure a software or service
+- op: replace
+  path: /commands/[configure:24]/arguments/[software:0]/description
+  value: Name of the software or service to configure
+- op: replace
+  path: /commands/[configure:24]/flags/[provider:0]/description
+  value: Specify the provider to use
+- op: replace
+  path: /commands/[configure:24]/flags/[dry-run:1]/description
+  value: Run in noop mode without doing changes
+- op: replace
+  path: /commands/[configure:24]/flags/[yes:2]/description
+  value: Assume yes to all prompted questions
+- op: replace
+  path: /commands/[scan:25]/description
+  value: Scan a software or service for security issues
+- op: replace
+  path: /commands/[scan:25]/arguments/[software:0]/description
+  value: Name of the software or service to scan
+- op: replace
+  path: /commands/[scan:25]/flags/[provider:0]/description
+  value: Specify the provider to use
+- op: replace
+  path: /commands/[scan:25]/flags/[detailed:1]/description
+  value: Show detailed scan results
+- op: replace
+  path: /commands/[scan:25]/flags/[level:2]/description
+  value: Scan level (basic, standard, thorough)
+- op: replace
+  path: /commands/[generate:26]/description
+  value: Generate Software Bill of Materials for a software or service
+- op: replace
+  path: /commands/[generate:26]/arguments/[software:0]/description
+  value: Name of the software or service to generate SBOM for
+- op: replace
+  path: /commands/[generate:26]/flags/[format:0]/description
+  value: Output format (spdx, cyclonedx)
+- op: replace
+  path: /commands/[generate:26]/flags/[path:1]/description
+  value: Output file path
+- op: replace
+  path: /commands/[watch:27]/description
+  value: Watch a software or service
+- op: replace
+  path: /commands/[watch:27]/arguments/[software:0]/description
+  value: Name of the software or service to watch
+- op: replace
+  path: /commands/[watch:27]/flags/[metrics:0]/description
+  value: Comma-separated list of metrics to watch
+- op: replace
+  path: /commands/[watch:27]/flags/[output:1]/description
+  value: Output format (text, json, csv)

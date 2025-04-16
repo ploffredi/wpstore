@@ -72,12 +72,44 @@ apply-translation.sh                 # Helper script for applying translations
 
 ### Prerequisites
 
-- Kustomize installed (v3.8.0 or higher)
+- Kustomize installed (v3.8.0 or higher) - for Kustomize method
 - Bash shell (for the helper script)
+- Python 3.12+ with pip (for the Python CLI tool)
 
 ### Applying Translations
 
-#### Option 1: Using the Helper Script (Recommended)
+#### Option 1: Using the Python CLI Tool (Recommended)
+
+Install the Python CLI tool:
+
+```bash
+# From the project directory
+pip install -e .
+```
+
+Apply translations using the CLI tool:
+
+```bash
+# Apply translations to plugins
+wpstore-patch apply-translation builtin 1.0.0 es     # Apply Spanish translations to the builtin plugin
+wpstore-patch apply-translation hello 0.0.1 it       # Apply Italian translations to the hello plugin
+wpstore-patch apply-translation pkgmanager 1.0.0 en  # Apply English translations to the pkgmanager plugin
+
+# With custom output file
+wpstore-patch apply-translation builtin 1.0.0 es --output custom-output.yml
+```
+
+Validate translations using the CLI tool:
+
+```bash
+# Validate translations
+wpstore-patch validate-patch builtin 1.0.0 es
+wpstore-patch validate-patch hello 0.0.1 it --dry-run  # With operation details
+```
+
+For more information, see the [CLI tool documentation](./wpstore/README.md).
+
+#### Option 2: Using the Bash Helper Script
 
 Run the provided helper script with the plugin name and language:
 
@@ -96,7 +128,7 @@ This will:
 2. Apply the specified language translation
 3. Generate an output file with a descriptive name (e.g., `builtin-es.yml`, `plugins-es.yml`)
 
-#### Option 2: Manual Application
+#### Option 3: Manual Application with Kustomize
 
 1. Navigate to the plugin's _patches directory:
 
