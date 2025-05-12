@@ -11,17 +11,14 @@ plugins:
     subcommand: "pkg"
     versions:
       - version: "1.0.0"
-        wasm: "pkgmanager.wasm"
         conf: "pkgmanager.yml"
   - name: "hello"
     description: "Test plugin that prints a greeting"
     uuid: "123e4567-e89b-12d3-a456-426614174001"
     versions:
       - version: "0.1.0"
-        wasm: "hello.wasm"
         conf: "hello.yml"
       - version: "0.0.1"
-        wasm: "hello.wasm"
         conf: "hello.yml"
 settings:
   default_repository: "https://github.com/ploffredi/wpstore.git"
